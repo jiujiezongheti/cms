@@ -27,7 +27,7 @@ class Parser{
 	private function _parvar(){
 		$patten = '/\{\$([\w]+)\}/';
 		if(preg_match($patten, $this->_tpl)){
-			$this->_tpl = preg_replace($patten,"<?php echo \$this->_vars['$1'];?>",$this->_tpl);
+			$this->_tpl = preg_replace($patten,"<?php echo @\$this->_vars['$1'];?>",$this->_tpl);
 		}
 	}
 
@@ -38,7 +38,7 @@ class Parser{
 		$patten_else = '/\{else\}/';
 		if(preg_match($patten_start, $this->_tpl)){
 			if(preg_match($patten_end,$this->_tpl)){
-				$this->_tpl = preg_replace($patten_start,"<?php if(\$this->_vars['$1']){;?>",$this->_tpl);
+				$this->_tpl = preg_replace($patten_start,"<?php if(@\$this->_vars['$1']){;?>",$this->_tpl);
 				$this->_tpl = preg_replace($patten_end,"<?php };?>",$this->_tpl);
 				if(preg_match($patten_else,$this->_tpl)){
 					$this->_tpl = preg_replace($patten_else,"<?php }else{?>",$this->_tpl);

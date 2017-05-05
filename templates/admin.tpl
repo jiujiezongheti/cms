@@ -6,10 +6,10 @@
 	<link rel="stylesheet" href="style/css/admin.css">
 </head>
 <frameset rows='80px,*'>
-	<frame src='../templates/top.tpl'>
+	<frame src='top.php'>
 	<frameset cols='150px,*'>
-		<frame src='../templates/sidebar.tpl'>
-		<frame src='../templates/main.tpl'>
+		<frame src='sidebar.php'>
+		<frame src='main.php'>
 	</frameset>
 </frameset>
 </html>

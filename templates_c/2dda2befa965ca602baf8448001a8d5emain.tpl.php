@@ -2,13 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>top</title>
+	<title>main</title>
 	<link rel="stylesheet" href="../style/css/admin.css">
 </head>
 <body>
-	top{$a}{$b}
-	{if $c}
-	{else}
-	{/if}
+	main
 </body>
 </html>
