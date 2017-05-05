@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>cms测试</title>
+	<title>top</title>
+	<link rel="stylesheet" href="../style/css/admin.css">
 </head>
 <body>
-
+	top
 </body>
 </html>

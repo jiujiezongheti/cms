@@ -77,12 +77,12 @@ class Parser{
 
 	//解析include
 	private function _parinclude(){
-		$patten = '/\{include\s+file=\"([\w\.\-]+)\"\}/';
+		$patten = '/\{include\s+file=(\"|\')([\w\.\-\/ ]+)(\"|\')\}/';
 		if(preg_match($patten,$this->_tpl,$file)){
-			if(!file_exists($file[1])||empty($file)){
-				exit('error:包含文件出错');
+			if(!file_exists($file[2])||empty($file)){
+				//exit('error:包含文件出错');
 			}
-			$this->_tpl = preg_replace($patten, "<?php include '\$1';?>", $this->_tpl);
+			$this->_tpl = preg_replace($patten, "<?php include '/\$2';?>", $this->_tpl);
 		}
 	}
 

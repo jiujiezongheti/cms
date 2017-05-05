@@ -9,7 +9,7 @@ class Templates{
 		if(!is_dir(TPL_DIR)||!is_dir(TPL_C_DIR)||!is_dir(CACHE)){
 			exit('error:模板目录或缓存目录或编译目录不存在');
 		}
-		$_sxe = simplexml_load_file('config/profile.xml');
+		$_sxe = simplexml_load_file(ROOT_PATH.'/config/profile.xml');
 		$_tagLib = $_sxe->xpath('/root/taglib');
 		foreach ($_tagLib as $_tag) {
 			$this->_config["$_tag->name"]=$_tag->value;
@@ -40,7 +40,7 @@ class Templates{
 		}
 		//当编译文件不存在或者模板文件修改过开始生成编译文件
 		if(!file_exists($_parfile)||filemtime($_parfile)<filemtime($_tplfile)){
-			require ROOT_PATH.'/includes/Parser.class.php';
+			require_once ROOT_PATH.'/includes/Parser.class.php';
 			$parser = new Parser($_tplfile);//模板文件
 			$parser->compile($_parfile);
 		}
@@ -64,6 +64,24 @@ class Templates{
 		}else{
 			exit('error:设置模板变量');
 		}
+	}
+
+	//创建create方法，用于header和footer这种模块模板解析使用，二不生成缓存文件
+	public function create($file){
+		$_tplfile = TPL_DIR.$file;//模板文件路径
+		if(!file_exists($_tplfile)){
+			exit('error:模板文件不存在');
+		}
+		//生成编译文件
+		$_parfile = TPL_C_DIR.md5($file).$file.'.php';
+		//当编译文件不存在或者模板文件修改过开始生成编译文件
+		if(!file_exists($_parfile)||filemtime($_parfile)<filemtime($_tplfile)){
+			require_once ROOT_PATH.'/includes/Parser.class.php';
+			$parser = new Parser($_tplfile);//模板文件
+			$parser->compile($_parfile);
+		}
+		//载入编译文件
+		include $_parfile;
 	}
 
 }
