@@ -5,7 +5,7 @@
 	<title>main</title>
 	<link rel="stylesheet" href="../style/css/admin.css">
 </head>
-<body>
+<body id='main'>
 	main
 </body>
 </html>

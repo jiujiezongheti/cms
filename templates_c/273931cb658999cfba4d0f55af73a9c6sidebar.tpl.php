@@ -5,7 +5,7 @@
 	<title>sidebar</title>
 	<link rel="stylesheet" href="../style/css/admin.css">
 </head>
-<body>
+<body id="sidebar">
 	sidebar
 </body>
 </html>

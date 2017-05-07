@@ -1,0 +1,56 @@
+body, h1, h2, h3, p, form, ul, dl, dd, dt {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background: #fff;
+  font-size: 12px; }
+
+ul {
+  list-style: none; }
+
+#top {
+  background: #3b6ea5; }
+  #top h1 {
+    width: 150px;
+    height: 80px;
+    font-size: 12px;
+    background: #ccc;
+    text-indent: -9999px;
+    float: left; }
+  #top ul {
+    padding: 47px 0 0 10px;
+    float: left; }
+    #top ul li {
+      float: left;
+      padding-left: 5px; }
+      #top ul li a {
+        display: block;
+        width: 58px;
+        height: 33px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        text-align: center;
+        line-height: 33px;
+        text-decoration: none;
+        background: #4c7fb6; }
+        #top ul li a.selected {
+          background: #eee;
+          color: #3b6ea5; }
+  #top p {
+    float: right;
+    padding: 33px 20px 0 0;
+    color: #fff; }
+    #top p a {
+      text-decoration: none;
+      color: #fff; }
+      #top p a:hover {
+        text-decoration: underline; }
+
+#sidebar {
+  background: #f7fbfc;
+  border-right: 1px solid #3b6ea5; }
+
+#main {
+  background: #fff; }
