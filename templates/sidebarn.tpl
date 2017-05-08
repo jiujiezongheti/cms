@@ -6,16 +6,12 @@
 	<link rel="stylesheet" href="../style/css/admin.css">
 </head>
 <body id="sidebar">
+	<div>
 	<dl>
-		<dt>管理首页</dt>
-		<dd>
-			<a href="main.php" target='main'>后台首页</a>
-		</dd>
-		<dd>
-			<a href="manage.php?action=list" target='main'>
-				管理员管理
-			</a>
-		</dd>
+		<dt>内容首页</dt>
+		<dd><a href="#">添加新闻档</a></dd>
+		<dd><a href="#">查看文档列表</a></dd>
 	</dl>
+	</div>
 </body>
 </html>

@@ -61,13 +61,13 @@ class Parser{
 	private function _parforeach(){
 		$patten_start = '/\{foreach\s+\$([\w]+)\(([\w]+),([\w]+)\)\}/';
 		$patten_end = '/\{\/foreach\}/';
-		$patten_var = '/\{@([\w]+)\}/';
+		$patten_var = '/\{@([\w]+)([\w\-\>]*)\}/';
 		if(preg_match($patten_start,$this->_tpl)){
 			if(preg_match($patten_end,$this->_tpl)){
 				$this->_tpl = preg_replace($patten_start,"<?php foreach(\$this->_vars['$1'] as \$$2=>\$$3){?>",$this->_tpl);
 				$this->_tpl = preg_replace($patten_end,"<?php }?>",$this->_tpl);
 				if(preg_match($patten_var, $this->_tpl)){
-					$this->_tpl = preg_replace($patten_var, "<?php echo \$$1?>", $this->_tpl);
+					$this->_tpl = preg_replace($patten_var, "<?php echo \$$1$2;?>", $this->_tpl);
 				}
 			}else{
 				exit('循环标签没有闭合');

@@ -1,11 +1,8 @@
-
-window.onload = function(){
-	var nav_li = document.getElementsByTagName('li');
-	for(var i=0;i<nav_li.length;i++){
-		nav_li[i].onclick = function(){
-
-			this.className = 'selected';
-			console.log(this.className);
-		}
+function admin_top_nav(j){
+	for(var i = 1;i<5;i++){
+		document.getElementById('nav'+i).style.background = '#4c7fb6';
+		document.getElementById('nav'+i).style.color = '#fff';
 	}
+	document.getElementById('nav'+j).style.background = '#eee';
+	document.getElementById('nav'+j).style.color = '#3b6ea5';
 }
