@@ -36,6 +36,9 @@
 		</tr>
 		<?php }?>
 	</table>
+	<p class="center">
+		[ <a href="manage.php?action=add">新增管理员</a> ]
+	</p>
 	<?php };?>
 	<?php if(@$this->_vars['add']){;?>
 	<form action="" method='post'>
@@ -52,8 +55,20 @@
 			</tr>
 			<tr>
 				<td>等级：<select name="level">
+						<option value="1">
+							后台游客
+						</option>
+						<option value="2">
+							会员专员
+						</option>
+						<option value="3">
+							评论专员
+						</option>
+						<option value="4">
+							发帖专员
+						</option>
 						<option value="5">
-							普通管理员
+							超级管理员
 						</option>
 						<option value="6">
 							超级管理员
@@ -63,7 +78,8 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name='submit' class='text' value="新增管理员">
+					<input type="submit" name='submit' class='submit' value="新增管理员">
+					[ <a href="manage.php?action=list">返回列表</a> ]
 				</td>
 			</tr>
 		</table>
@@ -73,10 +89,51 @@
 	delete
 	<?php };?>
 	<?php if(@$this->_vars['update']){;?>
-	update
+	<form action="" method='post'>
+		<table cellspacing="0" class="left">
+			<tr>
+				<td>用户名：
+					<input type="text" name='admin_user' class='text'>
+				</td>
+			</tr>
+			<tr>
+				<td>密码：
+					<input type="password" name='admin_pass' class='text'>
+				</td>
+			</tr>
+			<tr>
+				<td>等级：
+					<select name="level">
+						<option value="1">
+							后台游客
+						</option>
+						<option value="2">
+							会员专员
+						</option>
+						<option value="3">
+							评论专员
+						</option>
+						<option value="4">
+							发帖专员
+						</option>
+						<option value="5">
+							超级管理员
+						</option>
+						<option value="6">
+							超级管理员
+						</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" name='submit' class='submit' value="修改管理员">
+					[ <a href="manage.php?action=list">返回列表</a> ]
+				</td>
+			</tr>
+		</table>
+	</form>
 	<?php };?>
-	<p class="center">
-		[ <a href="manage.php?action=add">新增管理员</a> ]
-	</p>
+
 </body>
 </html>

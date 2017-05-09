@@ -16,12 +16,19 @@ class Manage{
 		DB::unDB($result,$db);
 		foreach ($html as $key => $value) {
 			$html[$key]->last_time = date('Y-m-d H:i:s',$value->last_time);
+			$html[$key]->login_count = $value->login_count-0;
 		}
 		return $html;
 	}
 		//新增管理员
-	public function addManage(){
-
+	public function addManage($admin_user,$admin_pass,$level){
+		$db = DB::getDB();
+		$time = time();
+		$result = $sql = "INSERT INTO manage (admin_user,admin_pass,level,reg_time) VALUES ('{$admin_user}','{$admin_pass}','{$level}','{$time}')";
+		$db->query($sql);
+		$affected_rows = $db->affected_rows;
+		DB::unDB($result,$db);
+		return $affected_rows;
 	}
 		//修改管理员
 	public function updateManage(){

@@ -116,3 +116,6 @@ ul {
     height: 19px;
     background: #fff;
     border: 1px solid #ccc; }
+  #main form input.submit {
+    cursor: pointer;
+    margin-left: 47px; }
