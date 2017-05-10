@@ -30,8 +30,8 @@
 			<td><?php echo $value->last_ip;?></td>
 			<td><?php echo $value->last_time;?></td>
 			<td>
-				<a href="manage.php?action=update">修改</a> | 
-				<a href="manage.php?action=delete">删除</a>
+				<a href="manage.php?action=update&id=<?php echo $value->id;?>">修改</a> | 
+				<a href="manage.php?action=delete&id=<?php echo $value->id;?>">删除</a>
 			</td>
 		</tr>
 		<?php }?>
@@ -68,7 +68,7 @@
 							发帖专员
 						</option>
 						<option value="5">
-							超级管理员
+							普通管理员
 						</option>
 						<option value="6">
 							超级管理员
@@ -84,9 +84,6 @@
 			</tr>
 		</table>
 	</form>
-	<?php };?>
-	<?php if(@$this->_vars['delete']){;?>
-	delete
 	<?php };?>
 	<?php if(@$this->_vars['update']){;?>
 	<form action="" method='post'>
@@ -134,6 +131,8 @@
 		</table>
 	</form>
 	<?php };?>
-
+	<?php if(@$this->_vars['delete']){;?>
+	delete
+	<?php };?>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2>test</h2>
+	<input type="text" name="content" id='content'>
+	<input type="submit" name='submit' value="提交输入内容到后台" id='submit'>
+	<p>接收后端传来的值</p>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		$("#submit").click(function(){
+			if($("#content").val()){
+				$.post(
+					'test.php',
+					{'content':$("#content").val()},
+					function(result){
+						$("p").html(result);
+					}
+					);
+			}
+			return false;
+		});
+	</script>
+</body>
+</html>
