@@ -31,7 +31,7 @@
 			<td>{@value->last_time}</td>
 			<td>
 				<a href="manage.php?action=update&id={@value->id}">修改</a> | 
-				<a href="manage.php?action=delete&id={@value->id}">删除</a>
+				<a href="manage.php?action=delete&id={@value->id}" onclick="return confirm('确定要删除？')?true:false;">删除</a>
 			</td>
 		</tr>
 		{/foreach}
