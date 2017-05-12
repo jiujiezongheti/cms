@@ -7,12 +7,16 @@ date_default_timezone_set('PRC');
 define('ROOT_PATH',dirname(__FILE__));
 //引入配置信息
 require ROOT_PATH.'/config/profile.inc.php';
-//引入模板类
-require ROOT_PATH.'/includes/Templates.class.php';
-//引入数据库
-require ROOT_PATH.'/includes/DB.class.php';
-//引入工具类
-require ROOT_PATH.'/includes/Tool.class.php';
+//自动加载类
+function __autoload($className){
+	if(substr($className,-6)=='Action'){
+		require ROOT_PATH.'/action/'.$className.'.class.php';
+	}elseif(substr($className,-5)=='Model'){
+		require ROOT_PATH.'/model/'.$className.'.class.php';
+	}else{
+		require ROOT_PATH.'/includes/'.$className.'.class.php';
+	}
+}
 //缓存机制
 require 'cache.inc.php';
 //实例化模板类

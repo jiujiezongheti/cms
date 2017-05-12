@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>main</title>
 	<link rel="stylesheet" href="../style/css/admin.css">
+	<script src='../js/admin_manage_option.js'></script>
 </head>
 <body id='main'>
 	<div class="map">
@@ -87,10 +88,12 @@
 	<?php };?>
 	<?php if(@$this->_vars['update']){;?>
 	<form action="" method='post'>
+		<input type="hidden" value="<?php echo @$this->_vars['id'];?>" name='id'>
+		<input type="hidden" value="<?php echo @$this->_vars['level'];?>" id='level'>
 		<table cellspacing="0" class="left">
 			<tr>
 				<td>用户名：
-					<input type="text" name='admin_user' class='text'>
+					<input type="text" name='admin_user' class='text' value="<?php echo @$this->_vars['admin_user'];?>" readonly="readonly">
 				</td>
 			</tr>
 			<tr>
@@ -114,7 +117,7 @@
 							发帖专员
 						</option>
 						<option value="5">
-							超级管理员
+							普通管理员
 						</option>
 						<option value="6">
 							超级管理员
