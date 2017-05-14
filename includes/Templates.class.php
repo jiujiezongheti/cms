@@ -18,6 +18,8 @@ class Templates{
 
 	//载入方法
 	public function display($file){
+		//给include进来的tpl传一个模板操作文件
+		$tpl = $this;
 		$_tplfile = TPL_DIR.$file;//模板文件路径
 		if(!file_exists($_tplfile)){
 			exit('error:模板文件不存在');

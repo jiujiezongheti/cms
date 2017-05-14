@@ -4,12 +4,17 @@
 	<meta charset="UTF-8">
 	<title>main</title>
 	<link rel="stylesheet" href="../style/css/admin.css">
-	<script src='../js/admin_manage_option.js'></script>
+	<script src='../js/admin_manage.js'></script>
 </head>
 <body id='main'>
 	<div class="map">
-		管理首页&gt;&gt;管理员管理&gt;&gt;<strong><?php echo @$this->_vars['title'];?></strong>
+		管理首页&gt;&gt;管理员管理&gt;&gt;<strong id='title'><?php echo @$this->_vars['title'];?></strong>
 	</div>
+
+	<ol>
+		<li><a href="manage.php?action=list" class="selected">管理员列表</a></li>
+		<li><a href="manage.php?action=add">新增管理员</a></li>
+	</ol>
 
 	<?php if(@$this->_vars['list']){;?>
 	<table cellspacing="0">
@@ -133,9 +138,6 @@
 			</tr>
 		</table>
 	</form>
-	<?php };?>
-	<?php if(@$this->_vars['delete']){;?>
-	delete
 	<?php };?>
 </body>
 </html>

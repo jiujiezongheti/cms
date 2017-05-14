@@ -6,7 +6,7 @@ body{
 	background:#fff;
 	font-size:12px;
 }
-ul{
+ul,ol{
 	list-style:none;
 }
 #top{
@@ -148,6 +148,25 @@ ul{
 		input.submit{
 			cursor: pointer;
 			margin-left: 47px;
+		}
+	}
+	ol{
+		padding:0 0 0 26px;
+		height: 35px;
+		li{
+			float: left;
+			padding-right:10px;
+			a{
+				display: block;
+				padding:6px;
+				&:hover{
+					background:#eee;
+				}
+			}
+			a.selected{
+				background:#3b6ea5;
+				color: #fff;
+			}
 		}
 	}
 }
