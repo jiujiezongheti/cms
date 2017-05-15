@@ -12,11 +12,14 @@
 	</div>
 
 	<ol>
-		<li><a href="manage.php?action=list" class="selected">管理员列表</a></li>
+		<li><a href="manage.php?action=show" class="selected">管理员列表</a></li>
 		<li><a href="manage.php?action=add">新增管理员</a></li>
+		{if $update}
+			<li><a href="#" class="selected">修改管理员</a></li>
+		{/if}
 	</ol>
 
-	{if $list}
+	{if $show}
 	<table cellspacing="0">
 		<tr>
 			<th>编号</th>
@@ -42,9 +45,6 @@
 		</tr>
 		{/foreach}
 	</table>
-	<p class="center">
-		[ <a href="manage.php?action=add">新增管理员</a> ]
-	</p>
 	{/if}
 	{if $add}
 	<form action="" method='post'>
@@ -61,31 +61,16 @@
 			</tr>
 			<tr>
 				<td>等级：<select name="level">
-						<option value="1">
-							后台游客
-						</option>
-						<option value="2">
-							会员专员
-						</option>
-						<option value="3">
-							评论专员
-						</option>
-						<option value="4">
-							发帖专员
-						</option>
-						<option value="5">
-							普通管理员
-						</option>
-						<option value="6">
-							超级管理员
-						</option>
+						{foreach $AllLevel(key,value)}
+							<option value="{@value->id}">{@value->level_name}</option>
+						{/foreach}
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<input type="submit" name='submit' class='submit' value="新增管理员">
-					[ <a href="manage.php?action=list">返回列表</a> ]
+					[ <a href="manage.php?action=show">返回列表</a> ]
 				</td>
 			</tr>
 		</table>
@@ -109,31 +94,16 @@
 			<tr>
 				<td>等级：
 					<select name="level">
-						<option value="1">
-							后台游客
-						</option>
-						<option value="2">
-							会员专员
-						</option>
-						<option value="3">
-							评论专员
-						</option>
-						<option value="4">
-							发帖专员
-						</option>
-						<option value="5">
-							普通管理员
-						</option>
-						<option value="6">
-							超级管理员
-						</option>
+						{foreach $AllLevel(key,value)}
+							<option value="{@value->id}">{@value->level_name}</option>
+						{/foreach}
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<input type="submit" name='submit' class='submit' value="修改管理员">
-					[ <a href="manage.php?action=list">返回列表</a> ]
+					[ <a href="manage.php?action=show">返回列表</a> ]
 				</td>
 			</tr>
 		</table>

@@ -22,8 +22,13 @@ class Model{
 		};
 		DB::unDB($result,$db);
 		foreach ($html as $key => $value) {
-			$html[$key]->last_time = date('Y-m-d H:i:s',$value->last_time);
-			$html[$key]->login_count = $value->login_count-0;
+			if(isset($value->last_time)){
+				$html[$key]->last_time = date('Y-m-d H:i:s',$value->last_time);
+			}
+			if(isset($value->login_count)){
+				$html[$key]->login_count = $value->login_count-0;
+			}
+			
 		}
 		return $html;
 	}

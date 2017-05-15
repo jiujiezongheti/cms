@@ -10,7 +10,7 @@ class ManageAction extends Action{
 	private function _action(){
 		if(!!$action=isset($_GET['action'])?$_GET['action']:''){
 			switch ($action) {
-				case 'list':
+				case 'show':
 					$this->_show();
 					break;
 				case 'add':
@@ -30,11 +30,11 @@ class ManageAction extends Action{
 		}
 	}
 
-	//list 
+	//show 
 	private function _show(){
-		$this->_tpl->assign('list',true);
+		$this->_tpl->assign('show',true);
 		$this->_tpl->assign('title','管理员列表');
-		$this->_tpl->assign('AllManage',$this->_model->getManage());
+		$this->_tpl->assign('AllManage',$this->_model->getAllManage());
 	}
 	//add
 	private function _add(){
@@ -42,10 +42,11 @@ class ManageAction extends Action{
 			$this->_model->admin_user = $_POST['admin_user'];
 			$this->_model->admin_pass = sha1($_POST['admin_pass']);
 			$this->_model->level = $_POST['level'];
-			$this->_model->addManage()?Tool::alertLocation('新增成功！','manage.php?action=list'):Tool::alertBack('新增失败！');
+			$this->_model->addManage()?Tool::alertLocation('新增成功！','manage.php?action=show'):Tool::alertBack('新增失败！');
 		}
 		$this->_tpl->assign('add',true);
 		$this->_tpl->assign('title','新增管理员');
+		$this->_tpl->assign('AllLevel',$this->_model->getAllLevel());
 	}
 	//update
 	private function _update(){
@@ -53,7 +54,7 @@ class ManageAction extends Action{
 			$this->_model->id = $_POST['id'];
 			$this->_model->admin_pass = sha1($_POST['admin_pass']);
 			$this->_model->level = $_POST['level'];
-			$this->_model->updateManage()?Tool::alertLocation('修改成功','manage.php?action=list'):Tool::alertBack('修改失败！');
+			$this->_model->updateManage()?Tool::alertLocation('修改成功','manage.php?action=show'):Tool::alertBack('修改失败！');
 		}
 		if(isset($_GET['id'])){
 			$this->_model->id = $_GET['id'];
@@ -63,6 +64,7 @@ class ManageAction extends Action{
 			$this->_tpl->assign('level',$this->_model->getOneManage()->level);
 			$this->_tpl->assign('update',true);
 			$this->_tpl->assign('title','修改管理员');
+			$this->_tpl->assign('AllLevel',$this->_model->getAllLevel());
 		
 		}else{
 			Tool::alertBack("非法操作");
@@ -72,7 +74,7 @@ class ManageAction extends Action{
 	private function _delete(){
 		if(isset($_GET['id'])){
 			$this->_model->id = $_GET['id'];
-			$this->_model->deleteManage()?Tool::alertLocation('删除成功!','manage.php?action=list'):Tool::alertBack('删除失败');
+			$this->_model->deleteManage()?Tool::alertLocation('删除成功!','manage.php?action=show'):Tool::alertBack('删除失败');
 		}else{
 			Tool::alertBack("非法操作");
 		}
