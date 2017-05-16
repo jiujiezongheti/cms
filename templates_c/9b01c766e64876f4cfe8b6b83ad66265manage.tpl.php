@@ -52,12 +52,22 @@
 			<tr>
 				<td>用户名：
 					<input type="text" name='admin_user' class='text'>
+					(*不得小于2位，不得大于20位)
 				</td>
 			</tr>
 			<tr>
 				<td>密码：
 					<input type="password" name='admin_pass' class='text'>
+					(*不得小于6位)
 				</td>
+				
+			</tr>
+			<tr>
+				<td>密码确认：
+					<input type="password" name='admin_passnote' class='text'>
+					(*于密码一致)
+				</td>
+				
 			</tr>
 			<tr>
 				<td>等级：<select name="level">
@@ -80,6 +90,7 @@
 	<form action="" method='post'>
 		<input type="hidden" value="<?php echo @$this->_vars['id'];?>" name='id'>
 		<input type="hidden" value="<?php echo @$this->_vars['level'];?>" id='level'>
+		<input type="hidden" value="<?php echo @$this->_vars['admin_pass'];?>" name='pass'>
 		<table cellspacing="0" class="left">
 			<tr>
 				<td>用户名：

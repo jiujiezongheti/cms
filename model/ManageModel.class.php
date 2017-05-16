@@ -16,7 +16,7 @@ class ManageModel extends Model{
 	} 
 	//查询单个管理员
 	public function getOneManage(){
-		$sql = "SELECT admin_user,level
+		$sql = "SELECT admin_user,level,admin_pass
 				FROM manage 
 				WHERE id='{$this->id}' 
 				LIMIT 1";

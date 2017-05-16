@@ -8,18 +8,18 @@
 </head>
 <body id='main'>
 	<div class="map">
-		管理首页&gt;&gt;等级管理&gt;&gt;<strong id='title'>{$title}</strong>
+		管理首页&gt;&gt;等级管理&gt;&gt;<strong id='title'><?php echo @$this->_vars['title'];?></strong>
 	</div>
 
 	<ol>
 		<li><a href="level.php?action=show" class="selected">等级列表</a></li>
 		<li><a href="level.php?action=add">新增等级</a></li>
-		{if $update}
+		<?php if(@$this->_vars['update']){;?>
 			<li><a href="level.php?action=update" class="selected">修改等级</a></li>
-		{/if}
+		<?php };?>
 	</ol>
 
-	{if $show}
+	<?php if(@$this->_vars['show']){;?>
 	<table cellspacing="0">
 		<tr>
 			<th>编号</th>
@@ -27,20 +27,20 @@
 			<th>等级描叙</th>
 			<th>操作</th>
 		</tr>
-		{foreach $AllLevel(key,value)}
+		<?php foreach($this->_vars['AllLevel'] as $key=>$value){?>
 		<tr>
-			<td>{@value->id}</td>
-			<td>{@value->level_name}</td>
-			<td>{@value->level_info}</td>
+			<td><?php echo $value->id;?></td>
+			<td><?php echo $value->level_name;?></td>
+			<td><?php echo $value->level_info;?></td>
 			<td>
-				<a href="level.php?action=update&id={@value->id}">修改</a> | 
-				<a href="level.php?action=delete&id={@value->id}" onclick="return confirm('确定要删除？')?true:false;">删除</a>
+				<a href="level.php?action=update&id=<?php echo $value->id;?>">修改</a> | 
+				<a href="level.php?action=delete&id=<?php echo $value->id;?>" onclick="return confirm('确定要删除？')?true:false;">删除</a>
 			</td>
 		</tr>
-		{/foreach}
+		<?php }?>
 	</table>
-	{/if}
-	{if $add}
+	<?php };?>
+	<?php if(@$this->_vars['add']){;?>
 	<form action="" method='post'>
 		<table cellspacing="0" class="left">
 			<tr>
@@ -61,19 +61,19 @@
 			</tr>
 		</table>
 	</form>
-	{/if}
-	{if $update}
+	<?php };?>
+	<?php if(@$this->_vars['update']){;?>
 	<form action="" method='post'>
-		<input type="hidden" value="{$id}" name='id'>
+		<input type="hidden" value="<?php echo @$this->_vars['id'];?>" name='id'>
 		<table cellspacing="0" class="left">
 			<tr>
 				<td>等级名称：
-					<input type="text" name='level_name' class='text' value="{$level_name}">
+					<input type="text" name='level_name' class='text' value="<?php echo @$this->_vars['level_name'];?>">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<textarea name="level_info" cols="30" rows="10">{$level_info}</textarea>
+					<textarea name="level_info" cols="30" rows="10"><?php echo @$this->_vars['level_info'];?></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -84,6 +84,6 @@
 			</tr>
 		</table>
 	</form>
-	{/if}
+	<?php };?>
 </body>
 </html>

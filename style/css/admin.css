@@ -9,6 +9,9 @@ body {
 ul, ol {
   list-style: none; }
 
+input, textarea {
+  outline: none; }
+
 #top {
   background: #3b6ea5; }
   #top h1 {
@@ -111,6 +114,13 @@ ul, ol {
     width: 100px;
     height: 19px;
     background: #fff; }
+  #main form textarea {
+    font-size: 13px;
+    width: 220px;
+    height: 100px;
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-left: 60px; }
   #main form input.text {
     width: 220px;
     height: 19px;
@@ -118,7 +128,7 @@ ul, ol {
     border: 1px solid #ccc; }
   #main form input.submit {
     cursor: pointer;
-    margin-left: 47px; }
+    margin-left: 60px; }
   #main ol {
     padding: 0 0 0 26px;
     height: 35px; }

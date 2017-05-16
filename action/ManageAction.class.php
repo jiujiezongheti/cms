@@ -39,6 +39,13 @@ class ManageAction extends Action{
 	//add
 	private function _add(){
 		if(isset($_POST['submit'])){
+			if(Validate::checkNull($_POST['admin_user']))Tool::alertBack('警告:用户名不得为空');
+			if(Validate::checkLength($_POST['admin_user'],2,'min'))Tool::alertBack('警告:用户名不得小于2位');
+			if(Validate::checkLength($_POST['admin_user'],20,'max'))Tool::alertBack('警告:用户名不得大于20位');
+			if(Validate::checkNull($_POST['admin_pass']))Tool::alertBack('警告:密码不得为空');
+			if(Validate::checkLength($_POST['admin_pass'],6,'min'))Tool::alertBack('警告:密码不得小于6位');
+			if(Validate::checkEquals($_POST['admin_pass'],$_POST['admin_passnote']))Tool::alertBack('警告:两次密码不一样');
+			
 			$this->_model->admin_user = $_POST['admin_user'];
 			$this->_model->admin_pass = sha1($_POST['admin_pass']);
 			$this->_model->level = $_POST['level'];
@@ -51,8 +58,15 @@ class ManageAction extends Action{
 	//update
 	private function _update(){
 		if (isset($_POST['submit'])) {
+			//Tool::alertBack($_POST['pass']);
 			$this->_model->id = $_POST['id'];
-			$this->_model->admin_pass = sha1($_POST['admin_pass']);
+			if(trim($_POST['admin_pass'])==''){
+				$this->_model->admin_pass = $_POST['pass'];
+			}else{
+				if(Validate::checkLength($_POST['admin_pass'],6,'min'))Tool::alertBack('警告:密码不得小于6位');
+				$this->_model->admin_pass = sha1($_POST['admin_pass']);
+			}
+			//$this->_model->admin_pass = sha1($_POST['admin_pass']);
 			$this->_model->level = $_POST['level'];
 			$this->_model->updateManage()?Tool::alertLocation('修改成功','manage.php?action=show'):Tool::alertBack('修改失败！');
 		}
@@ -62,6 +76,7 @@ class ManageAction extends Action{
 			$this->_tpl->assign('id',$this->_model->id);
 			$this->_tpl->assign('admin_user',$this->_model->getOneManage()->admin_user);
 			$this->_tpl->assign('level',$this->_model->getOneManage()->level);
+			$this->_tpl->assign('admin_pass',$this->_model->getOneManage()->admin_pass);
 			$this->_tpl->assign('update',true);
 			$this->_tpl->assign('title','修改管理员');
 			$this->_tpl->assign('AllLevel',$this->_model->getAllLevel());

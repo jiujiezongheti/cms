@@ -43,8 +43,7 @@ class LevelModel extends Model{
 		return parent::aud($sql);
 	}
 		//修改
-	public function updateLevel(){
-		
+	public function updateLevel(){	
 		$sql = "UPDATE level 
 				SET level_name='{$this->level_name}',
 					level_info='{$this->level_info}' 
@@ -54,19 +53,10 @@ class LevelModel extends Model{
 	}
 		//删除
 	public function deleteLevel(){
-		$sql = "DELETE FROM manage 
+		$sql = "DELETE FROM level 
 				WHERE id='{$this->id}' 
 				LIMIT 1";
 		return parent::aud($sql);
 	}
-
-	//查询等级
-	public function getAllLevel(){
-		$sql = "SELECT id,level_name,level_info 
-				FROM level 
-				ORDER BY id ASC";
-		return parent::all($sql);
-	}
-
 }
 ?>
