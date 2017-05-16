@@ -1,9 +1,8 @@
 <?php
-//管理员实体类
-class ManageModel extends Model{
-	private $admin_user;
-	private $admin_pass;
-	private $level;
+//等级实体类
+class LevelModel extends Model{
+	private $level_name;
+	private $level_info;
 	private $id;
 
 	//__set()方法用来设置私有属性 
@@ -14,58 +13,47 @@ class ManageModel extends Model{
 	public function __get($name){ 
 		return $this->$name; 
 	} 
-	//查询单个管理员
-	public function getOneManage(){
-		$sql = "SELECT admin_user,level
-				FROM manage 
+	//查询单个
+	public function getOneLevel(){
+		$sql = "SELECT id,level_name,level_info
+				FROM level 
 				WHERE id='{$this->id}' 
 				LIMIT 1";
 		return parent::one($sql);
 	}
 
 
-	//查询所有管理员
-	public function getAllManage(){
+	//查询所有
+	public function getAllLevel(){
 		//过程化操作数据库
-		$sql = 'SELECT m.id,
-					m.admin_user,
-					m.login_count,
-					m.last_ip,
-					m.last_time,
-					l.level_name 
-				FROM manage m,level l 
-				WHERE m.level=l.id 
+		$sql = 'SELECT id,level_name,level_info
+				FROM level
 				ORDER BY id ASC 
 				LIMIT 0,20';
 		return parent::all($sql);
 	}
-		//新增管理员
-	public function addManage(){
+		//新增
+	public function addLevel(){
 		$time = time();
-		$sql = "INSERT INTO manage 
-					(admin_user,
-						admin_pass,
-						level,
-						reg_time) 
+		$sql = "INSERT INTO level 
+					(level_info,level_name) 
 				VALUES 
-					('{$this->admin_user}',
-						'{$this->admin_pass}',
-						'{$this->level}',
-						'{$time}')";
+					('{$this->level_info}',
+						'{$this->level_name}')";
 		return parent::aud($sql);
 	}
-		//修改管理员
-	public function updateManage(){
+		//修改
+	public function updateLevel(){
 		
-		$sql = "UPDATE manage 
-				SET admin_pass='{$this->admin_pass}',
-					level='{$this->level}' 
+		$sql = "UPDATE level 
+				SET level_name='{$this->level_name}',
+					level_info='{$this->level_info}' 
 				WHERE id='{$this->id}' 
 				LIMIT 1";
 		return parent::aud($sql);
 	}
-		//删除管理员
-	public function deleteManage(){
+		//删除
+	public function deleteLevel(){
 		$sql = "DELETE FROM manage 
 				WHERE id='{$this->id}' 
 				LIMIT 1";
