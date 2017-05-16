@@ -47,7 +47,7 @@
 	</table>
 	<?php };?>
 	<?php if(@$this->_vars['add']){;?>
-	<form action="" method='post'>
+	<form action="" method='post' name='add'>
 		<table cellspacing="0" class="left">
 			<tr>
 				<td>用户名：
@@ -79,7 +79,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name='submit' class='submit' value="新增管理员">
+					<input type="submit" name='submit' class='submit' value="新增管理员" onclick="return checkAddForm();">
 					[ <a href="manage.php?action=show">返回列表</a> ]
 				</td>
 			</tr>
@@ -100,6 +100,7 @@
 			<tr>
 				<td>密码：
 					<input type="password" name='admin_pass' class='text'>
+					(*留空则不修改密码)
 				</td>
 			</tr>
 			<tr>

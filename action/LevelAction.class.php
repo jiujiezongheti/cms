@@ -39,6 +39,10 @@ class LevelAction extends Action{
 	//add
 	private function _add(){
 		if(isset($_POST['submit'])){
+			if(Validate::checkNull($_POST['level_name']))Tool::alertBack('警告:等级不得为空');
+			if(Validate::checkLength($_POST['level_name'],2,'min'))Tool::alertBack('警告:等级不得小于2位');
+			if(Validate::checkLength($_POST['level_name'],20,'max'))Tool::alertBack('警告:等级不得大于20位');
+			if(Validate::checkLength($_POST['level_info'],200,'max'))Tool::alertBack('警告:等级描叙不得大于200位');
 			$this->_model->level_name = $_POST['level_name'];
 			$this->_model->level_info = $_POST['level_info'];
 			$this->_model->addLevel()?Tool::alertLocation('新增成功！','level.php?action=show'):Tool::alertBack('新增失败！');
@@ -49,6 +53,10 @@ class LevelAction extends Action{
 	//update
 	private function _update(){
 		if (isset($_POST['submit'])) {
+			if(Validate::checkNull($_POST['level_name']))Tool::alertBack('警告:等级不得为空');
+			if(Validate::checkLength($_POST['level_name'],2,'min'))Tool::alertBack('警告:等级不得小于2位');
+			if(Validate::checkLength($_POST['level_name'],20,'max'))Tool::alertBack('警告:等级不得大于20位');
+			if(Validate::checkLength($_POST['level_info'],200,'max'))Tool::alertBack('警告:等级描叙不得大于200位');
 			$this->_model->id = $_POST['id'];
 			$this->_model->level_name = $_POST['level_name'];
 			$this->_model->level_info = $_POST['level_info'];

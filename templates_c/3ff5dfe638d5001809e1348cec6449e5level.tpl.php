@@ -46,11 +46,13 @@
 			<tr>
 				<td>等级名称：
 					<input type="text" name='level_name' class='text'>
+					(*等级名称不得小于2位或者大于20位)
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<textarea name="level_info" cols="30" rows="10"></textarea>
+					(*描叙不得大于200位)
 				</td>
 			</tr>
 			<tr>
