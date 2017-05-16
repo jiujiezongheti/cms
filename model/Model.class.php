@@ -36,7 +36,7 @@ class Model{
 
 	//增删修模型
 	protected function aud($sql){
-		
+		$db = DB::getDB();
 		$result = $db->query($sql);
 		$affected_rows = $db->affected_rows;
 		DB::unDB($result,$db);
