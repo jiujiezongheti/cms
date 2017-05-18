@@ -114,7 +114,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name='submit' class='submit' value="修改管理员">
+					<input type="submit" name='submit' class='submit' value="修改管理员" onclick="return checkUpdateForm()">
 					[ <a href="manage.php?action=show">返回列表</a> ]
 				</td>
 			</tr>

@@ -19,11 +19,11 @@ window.onload = function(){
 	};
 }
 
-	//验证add
+	//验证Manageadd
 	function checkAddForm(){
 		var fm = document.add;
-		if(fm.admin_user.value==''||fm.admin_user.value.length<2){
-			alert("警告:用户名不得为空或者小于2位");
+		if(fm.admin_user.value==''||fm.admin_user.value.length<2||fm.admin_user.value.length>20){
+			alert("警告:用户名不得为空或者小于2位并且不得大于20位");
 			fm.admin_user.focus();
 			return false;
 		}
@@ -39,3 +39,16 @@ window.onload = function(){
 		}
 		return true;
 	}
+
+//验证Manageupdate
+function checkUpdateForm(){
+	var fm = document.update;
+	if(fm.admin_pass.value!=''){
+		if(fm.admin_pass.value.length<6){
+			alert('警告:密码不得小于6位');
+			fm.admin_pass.focus();
+			return false;
+		}
+	}
+	return false;
+}

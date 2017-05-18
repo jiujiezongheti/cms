@@ -87,7 +87,7 @@
 	</form>
 	{/if}
 	{if $update}
-	<form action="" method='post'>
+	<form action="" method='post' name="update">
 		<input type="hidden" value="{$id}" name='id'>
 		<input type="hidden" value="{$level}" id='level'>
 		<input type="hidden" value="{$admin_pass}" name='pass'>
@@ -114,7 +114,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name='submit' class='submit' value="修改管理员">
+					<input type="submit" name='submit' class='submit' value="修改管理员" onclick="return checkUpdateForm()">
 					[ <a href="manage.php?action=show">返回列表</a> ]
 				</td>
 			</tr>
