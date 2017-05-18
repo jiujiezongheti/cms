@@ -19,6 +19,8 @@ class ManageModel extends Model{
 		$sql = "SELECT admin_user,level,admin_pass
 				FROM manage 
 				WHERE id='{$this->id}' 
+				OR admin_user='{$this->admin_user}'
+				OR level='{$this->level}'
 				LIMIT 1";
 		return parent::one($sql);
 	}
@@ -72,12 +74,10 @@ class ManageModel extends Model{
 		return parent::aud($sql);
 	}
 
-	//查询等级
-	public function getAllLevel(){
-		$sql = "SELECT id,level_name,level_info 
-				FROM level 
-				ORDER BY id ASC";
-		return parent::all($sql);
+	//获取所有记录条数
+	public function getManageTotal(){
+		$_sql = 'SELECT COUNT(*) FROM manage';
+		return parent::total($_sql);
 	}
 
 }

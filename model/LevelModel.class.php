@@ -18,6 +18,7 @@ class LevelModel extends Model{
 		$sql = "SELECT id,level_name,level_info
 				FROM level 
 				WHERE id='{$this->id}' 
+				OR level_name='{$this->level_name}'
 				LIMIT 1";
 		return parent::one($sql);
 	}
@@ -28,8 +29,7 @@ class LevelModel extends Model{
 		//过程化操作数据库
 		$sql = 'SELECT id,level_name,level_info
 				FROM level
-				ORDER BY id ASC 
-				LIMIT 0,20';
+				ORDER BY id ASC';
 		return parent::all($sql);
 	}
 		//新增

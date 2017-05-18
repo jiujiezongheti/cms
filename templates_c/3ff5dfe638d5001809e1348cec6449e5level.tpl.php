@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>main</title>
 	<link rel="stylesheet" href="../style/css/admin.css">
-	<script src='../js/admin_manage.js'></script>
+	<script src='../js/admin_level.js'></script>
 </head>
 <body id='main'>
 	<div class="map">
@@ -41,7 +41,7 @@
 	</table>
 	<?php };?>
 	<?php if(@$this->_vars['add']){;?>
-	<form action="" method='post'>
+	<form action="" method='post' name="add">
 		<table cellspacing="0" class="left">
 			<tr>
 				<td>等级名称：
@@ -57,7 +57,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name='submit' class='submit level' value="新增等级">
+					<input type="submit" name='submit' class='submit level' value="新增等级" onclick="return checkForm()">
 					[ <a href="level.php?action=show">返回列表</a> ]
 				</td>
 			</tr>
@@ -65,7 +65,7 @@
 	</form>
 	<?php };?>
 	<?php if(@$this->_vars['update']){;?>
-	<form action="" method='post'>
+	<form action="" method='post' name="add">
 		<input type="hidden" value="<?php echo @$this->_vars['id'];?>" name='id'>
 		<table cellspacing="0" class="left">
 			<tr>
@@ -80,7 +80,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name='submit' class='submit level' value="修改等级">
+					<input type="submit" name='submit' class='submit level' value="修改等级" onclick="return checkForm()">
 					[ <a href="level.php?action=show">返回列表</a> ]
 				</td>
 			</tr>

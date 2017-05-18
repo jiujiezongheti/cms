@@ -32,6 +32,7 @@ class ManageAction extends Action{
 
 	//show 
 	private function _show(){
+		$page = new Page($this->_model->getManageTotal());
 		$this->_tpl->assign('show',true);
 		$this->_tpl->assign('title','管理员列表');
 		$this->_tpl->assign('AllManage',$this->_model->getAllManage());
@@ -47,13 +48,15 @@ class ManageAction extends Action{
 			if(Validate::checkEquals($_POST['admin_pass'],$_POST['admin_passnote']))Tool::alertBack('警告:两次密码不一样');
 			
 			$this->_model->admin_user = $_POST['admin_user'];
+			if($this->_model->getOneManage())Tool::alertBack('警告：此用户已经存在');
 			$this->_model->admin_pass = sha1($_POST['admin_pass']);
 			$this->_model->level = $_POST['level'];
 			$this->_model->addManage()?Tool::alertLocation('新增成功！','manage.php?action=show'):Tool::alertBack('新增失败！');
 		}
 		$this->_tpl->assign('add',true);
 		$this->_tpl->assign('title','新增管理员');
-		$this->_tpl->assign('AllLevel',$this->_model->getAllLevel());
+		$_level = new LevelModel();
+		$this->_tpl->assign('AllLevel',$_level->getAllLevel());
 	}
 	//update
 	private function _update(){
@@ -79,7 +82,8 @@ class ManageAction extends Action{
 			$this->_tpl->assign('admin_pass',$this->_model->getOneManage()->admin_pass);
 			$this->_tpl->assign('update',true);
 			$this->_tpl->assign('title','修改管理员');
-			$this->_tpl->assign('AllLevel',$this->_model->getAllLevel());
+			$_level = new LevelModel();
+			$this->_tpl->assign('AllLevel',$_level->getAllLevel());
 		
 		}else{
 			Tool::alertBack("非法操作");

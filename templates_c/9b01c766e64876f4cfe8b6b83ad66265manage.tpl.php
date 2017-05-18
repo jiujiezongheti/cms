@@ -87,7 +87,7 @@
 	</form>
 	<?php };?>
 	<?php if(@$this->_vars['update']){;?>
-	<form action="" method='post'>
+	<form action="" method='post' name="update">
 		<input type="hidden" value="<?php echo @$this->_vars['id'];?>" name='id'>
 		<input type="hidden" value="<?php echo @$this->_vars['level'];?>" id='level'>
 		<input type="hidden" value="<?php echo @$this->_vars['admin_pass'];?>" name='pass'>
