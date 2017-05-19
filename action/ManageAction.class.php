@@ -32,10 +32,13 @@ class ManageAction extends Action{
 
 	//show 
 	private function _show(){
-		$page = new Page($this->_model->getManageTotal());
+		//echo $this->_model->getManageTotal();
+		$page = new Page($this->_model->getManageTotal(),PAGE_SIZE);
+		$this->_model->limit = $page->limit;
 		$this->_tpl->assign('show',true);
 		$this->_tpl->assign('title','管理员列表');
 		$this->_tpl->assign('AllManage',$this->_model->getAllManage());
+		$this->_tpl->assign('page',$page->showpage());
 	}
 	//add
 	private function _add(){

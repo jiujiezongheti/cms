@@ -42,5 +42,14 @@ class Model{
 		DB::unDB($result,$db);
 		return $affected_rows;
 	}
+
+	//查找总记录模型
+	protected function total($sql){
+		$db = DB::getDB();
+		$result = $db->query($sql);
+		$total = $result->fetch_row();
+		DB::unDB($result,$db);
+		return $total[0];
+	}
 }
 ?>

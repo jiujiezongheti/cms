@@ -5,6 +5,7 @@ class ManageModel extends Model{
 	private $admin_pass;
 	private $level;
 	private $id;
+	private $limit;
 
 	//__set()方法用来设置私有属性 
 	public function __set($name,$value){ 
@@ -29,7 +30,7 @@ class ManageModel extends Model{
 	//查询所有管理员
 	public function getAllManage(){
 		//过程化操作数据库
-		$sql = 'SELECT m.id,
+		$sql = "SELECT m.id,
 					m.admin_user,
 					m.login_count,
 					m.last_ip,
@@ -38,7 +39,7 @@ class ManageModel extends Model{
 				FROM manage m,level l 
 				WHERE m.level=l.id 
 				ORDER BY id ASC 
-				LIMIT 0,20';
+				{$this->limit}";
 		return parent::all($sql);
 	}
 		//新增管理员
