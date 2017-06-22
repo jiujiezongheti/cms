@@ -6,7 +6,7 @@ class Tool{
 			echo "<script>alert('{$info}');location.href='{$url}'</script>";
 			exit();
 		}else{
-			header('Location:admin.php');
+			header('Location:'.$url);
 			exit();
 		}
 		
@@ -15,6 +15,13 @@ class Tool{
 	static public function alertBack($info){
 		echo "<script>alert('{$info}');history.back();</script>";
 		exit();
+	}
+
+	//清理session
+	static public function unSession(){
+		if(session_start()){
+			session_destroy();
+		}
 	}
 }
 ?>

@@ -18,13 +18,15 @@ class ManageAction extends Action{
 					break;
 				case 'delete':
 					$this->_delete();
-					
 					break;
 				case 'update':
 					$this->_update();
 					break;
 				case 'login':
 					$this->login();
+					break;
+				case 'logout':
+					$this->logout();
 					break;
 				default:
 					Tool::alertBack("非法操作！");
@@ -55,6 +57,13 @@ class ManageAction extends Action{
 			}
 		}
 	}
+
+	//logout
+	private function logout(){
+		Tool::unSession();
+		Tool::alertLocation(null,'admin_login.php');
+	}
+
 	//show 
 	private function _show(){
 		//echo $this->_model->getManageTotal();
