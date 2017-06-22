@@ -181,6 +181,45 @@ input,textarea{
 		}
 	}
 }
+
+#adminLogin{
+	width:350px;
+	margin:100px auto;
+	color:#666;
+	fieldset{
+		padding:20px;
+	}
+	legend{
+		font-size: 16px;
+		font-weight: 600;
+	}
+	label{
+		display: block;
+		margin: 5px;
+		font-size:14px;
+		&.t{
+			color: #999;
+			text-indent: 56px;
+		}
+		img{
+			margin: 0 0 0 56px;
+			cursor: pointer;
+		}
+		input.text{
+			width: 215px;
+			height: 27px;
+			border:1px solid #666;
+			outline: none;
+			background:#eee;
+			padding-left:5px;
+		}	
+	}
+	input.submit{
+		margin:0 0 0 60px;
+		cursor: pointer;
+	}
+}
+
 #page{
 	text-align:center;
 	padding:10px;

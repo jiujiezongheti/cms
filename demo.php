@@ -1,4 +1,5 @@
 <?php
-$con = mysqli_connect('localhost','root','');
-var_dump($con);
+require_once dirname(__FILE__)."/init.inc.php";
+$vc = new ValidateCode();
+echo $vc->doimg();
 ?>

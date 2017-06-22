@@ -30,10 +30,10 @@ class Page{
 		$page='';
 		$page .= $this->first();
 		$page .= $this->pageList();
-		
+		$page .= $this->last();
 		$page .= $this->prev();
 		$page .= $this->next();
-		//$page .= $this->last();
+		
 		return $page;
 	}
 
@@ -83,7 +83,10 @@ class Page{
 
 	//尾页
 	private function last(){
-		return "...<a href='".$this->url."&page=".$this->pagenum."'>尾页</a>";
+		if($this->pagenum-$this->page>$this->bothnum){
+			return "...<a href='".$this->url."&page=".$this->pagenum."'>{$this->pagenum}</a>";
+		}
+		
 	}
 
 	//获取地址

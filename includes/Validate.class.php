@@ -15,6 +15,9 @@ class Validate{
 		}elseif ($flag=='max') {
 			if(mb_strlen(trim($date),'utf-8')>$length)return true;
 			return false;
+		}elseif($flag=='equals'){
+			if(mb_strlen(trim($date),'utf-8')!=$length)return true;
+			return false;
 		}else{
 			Tool::alertBack("ERROR：参数传递错误");
 		}

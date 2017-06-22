@@ -23,6 +23,9 @@ class ManageAction extends Action{
 				case 'update':
 					$this->_update();
 					break;
+				case 'login':
+					$this->login();
+					break;
 				default:
 					Tool::alertBack("非法操作！");
 					break;
@@ -30,6 +33,28 @@ class ManageAction extends Action{
 		}
 	}
 
+	//login
+	private function login(){
+		if(isset($_POST['send'])){
+			$code = strtolower(isset($_POST['code'])?$_POST['code']:'');
+			if(Validate::checkLength($code,4,'equals'))Tool::alertBack('验证码必须为4位');
+			if(Validate::checkEquals($code,$_SESSION['code']))Tool::alertBack('验证码不正确');
+			if(Validate::checkNull($_POST['admin_user']))Tool::alertBack('警告:用户名不得为空');
+			if(Validate::checkLength($_POST['admin_user'],2,'min'))Tool::alertBack('警告:用户名不得小于2位');
+			if(Validate::checkLength($_POST['admin_user'],20,'max'))Tool::alertBack('警告:用户名不得大于20位');
+			if(Validate::checkNull($_POST['admin_pass']))Tool::alertBack('警告:密码不得为空');
+			if(Validate::checkLength($_POST['admin_pass'],6,'min'))Tool::alertBack('警告:密码不得小于6位');
+			$this->_model->admin_user=$_POST['admin_user'];
+			$this->_model->admin_pass=sha1($_POST['admin_pass']);
+			$login = $this->_model->getLoginManage();
+			if ($login) {
+				$_SESSION['admin']=$login;
+				Tool::alertLocation(null,'admin.php');
+			}else{
+				Tool::alertBack('警告：用户名或密码错误');
+			}
+		}
+	}
 	//show 
 	private function _show(){
 		//echo $this->_model->getManageTotal();

@@ -26,6 +26,16 @@ class ManageModel extends Model{
 		return parent::one($sql);
 	}
 
+	//查询登录管理员
+	public function getLoginManage(){
+		$sql = "SELECT m.admin_user,l.level_name
+				FROM manage m,level l
+				WHERE m.admin_user='{$this->admin_user}' 
+				AND m.admin_pass='{$this->admin_pass}' 
+				AND m.level=l.id
+				LIMIT 1";
+		return parent::one($sql);
+	}
 
 	//查询所有管理员
 	public function getAllManage(){
