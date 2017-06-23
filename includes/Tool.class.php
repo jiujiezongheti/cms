@@ -6,7 +6,7 @@ class Tool{
 			echo "<script>alert('{$info}');location.href='{$url}'</script>";
 			exit();
 		}else{
-			header('Location:admin.php');
+			header('Location:'.$url);
 			exit();
 		}
 		
