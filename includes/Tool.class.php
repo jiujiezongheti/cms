@@ -16,5 +16,11 @@ class Tool{
 		echo "<script>alert('{$info}');history.back();</script>";
 		exit();
 	}
+
+	static public function unSession(){
+		if(session_start()){
+			session_destroy();
+		}
+	}
 }
 ?>

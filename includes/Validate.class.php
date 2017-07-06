@@ -28,5 +28,10 @@ class Validate{
 		if(trim($date) != trim($otherdate))return true;
 		return false;
 	}
+
+	//session验证
+	static public function checkSession(){
+		if(!isset($_SESSION['admin']))Tool::alertBack('警告：非法登录');
+	}
 }
 ?>
