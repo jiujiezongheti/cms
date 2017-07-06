@@ -9,6 +9,8 @@ class ManageAction extends Action{
 	//action
 	private function _action(){
 		if(!!$action=isset($_GET['action'])?$_GET['action']:''){
+			if($action=='login')$this->login();
+			Validate::checkSession();
 			switch ($action) {
 				case 'show':
 					$this->_show();
@@ -22,8 +24,8 @@ class ManageAction extends Action{
 				case 'update':
 					$this->_update();
 					break;
-				case 'login':
-					$this->login();
+				case 'logout':
+					$this->logout();
 					break;
 				case 'logout':
 					$this->logout();
@@ -35,6 +37,11 @@ class ManageAction extends Action{
 		}
 	}
 
+	//logout
+	private function logout(){
+		Tool::unSession();
+		Tool::alertLocation(null,'admin_login.php');
+	}
 	//login
 	private function login(){
 		if(isset($_POST['send'])){

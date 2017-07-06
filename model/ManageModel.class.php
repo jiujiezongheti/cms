@@ -34,6 +34,7 @@ class ManageModel extends Model{
 				AND m.admin_pass='{$this->admin_pass}' 
 				AND m.level=l.id
 				LIMIT 1";
+		//return $sql;
 		return parent::one($sql);
 	}
 

@@ -7,12 +7,12 @@ function checkLogin(){
 		return false;
 	}
 	if(fm.admin_pass.value==''||fm.admin_pass.value.length<6){
-		alert("警告:密码不得为空或者小于6位");
+		alert("警告:密码不得为空并且不得小于6位");
 		fm.admin_pass.focus();
 		return false;
 	}
 	if(fm.code.value.length!=4){
-		alert("警告:验证码应为4位");
+		alert("警告:验证码必须为四位!");
 		fm.code.focus();
 		return false;
 	}
