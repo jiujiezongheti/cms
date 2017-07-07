@@ -27,9 +27,6 @@ class ManageAction extends Action{
 				case 'logout':
 					$this->logout();
 					break;
-				case 'logout':
-					$this->logout();
-					break;
 				default:
 					Tool::alertBack("非法操作！");
 					break;
@@ -65,11 +62,6 @@ class ManageAction extends Action{
 		}
 	}
 
-	//logout
-	private function logout(){
-		Tool::unSession();
-		Tool::alertLocation(null,'admin_login.php');
-	}
 
 	//show 
 	private function _show(){
