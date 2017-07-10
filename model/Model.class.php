@@ -7,7 +7,7 @@ class Model{
 		$result = $db->query($sql);
 		$object = $result->fetch_object();
 		DB::unDB($result,$db);
-		return $object;
+		return Tool::htmlString($object);
 	}
 
 	//查找多个数据模型
@@ -30,7 +30,7 @@ class Model{
 			}
 			
 		}
-		return $html;
+		return Tool::htmlString($html);
 	}
 
 

@@ -23,5 +23,21 @@ class Tool{
 			session_destroy();
 		}
 	}
+
+	//显示过滤
+	static public function htmlString($date){
+		if(is_array($date)){
+			foreach ($date as $key => $value) {
+				$_string[$key] = Tool::htmlString($value);
+			}
+		}elseif(is_object($date)){
+			foreach ($date as $key => $value) {
+				@$_string->$key = Tool::htmlString($value);
+			}
+		}else{
+			$_string = htmlspecialchars($date);
+		}
+		return $_string;
+	}
 }
 ?>
