@@ -30,6 +30,7 @@
 			<th>最近登录时间</th>
 			<th>操作</th>
 		</tr>
+		<?php if(@$this->_vars['AllManage']){;?>
 		<?php foreach($this->_vars['AllManage'] as $key=>$value){?>
 		<tr>
 			<td><?php echo $value->id;?></td>
@@ -44,6 +45,11 @@
 			</td>
 		</tr>
 		<?php }?>
+		<?php }else{?>
+		<tr>
+			<td colspan="7"></td>
+		</tr>
+		<?php };?>
 	</table>
 	<div id='page'><?php echo @$this->_vars['page'];?></div>
 	<?php };?>

@@ -58,5 +58,10 @@ class LevelModel extends Model{
 				LIMIT 1";
 		return parent::aud($sql);
 	}
+	//获取所有记录条数
+	public function getLevelTotal(){
+		$_sql = 'SELECT COUNT(*) FROM level';
+		return parent::total($_sql);
+	}
 }
 ?>

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>main</title>
 	<link rel="stylesheet" href="../style/css/admin.css">
-	<script src='../js/admin_manage.js'></script>
+	<script src='../js/admin_nav.js'></script>
 </head>
 <body id='main'>
 	<div class="map">
@@ -27,17 +27,23 @@
 			<th>描叙</th>
 			<th>操作</th>
 		</tr>
-		{foreach $AllLevel(key,value)}
+		{if $AllNav}
+		{foreach $AllNav(key,value)}
 		<tr>
 			<td>{@value->id}</td>
-			<td>{@value->level_name}</td>
-			<td>{@value->level_info}</td>
+			<td>{@value->nav_name}</td>
+			<td>{@value->nav_info}</td>
 			<td>
 				<a href="nav.php?action=update&id={@value->id}">修改</a> | 
 				<a href="nav.php?action=delete&id={@value->id}" onclick="return confirm('确定要删除？')?true:false;">删除</a>
 			</td>
 		</tr>
 		{/foreach}
+		{else}
+		<tr>
+			<td colspan='4'>没有任何数据</td>
+		</tr>
+		{/if}
 	</table>
 	<div id='page'>{$page}</div>
 	{/if}

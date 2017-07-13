@@ -27,6 +27,7 @@
 			<th>等级描叙</th>
 			<th>操作</th>
 		</tr>
+		<?php if(@$this->_vars['AllLevel']){;?>
 		<?php foreach($this->_vars['AllLevel'] as $key=>$value){?>
 		<tr>
 			<td><?php echo $value->id;?></td>
@@ -38,7 +39,13 @@
 			</td>
 		</tr>
 		<?php }?>
+		<?php }else{?>
+		<tr>
+			<td colspan='4'>没有数据</td>
+		</tr>
+		<?php };?>
 	</table>
+	<div id='page'><?php echo @$this->_vars['page'];?></div>
 	<?php };?>
 	<?php if(@$this->_vars['add']){;?>
 	<form action="" method='post' name="add">

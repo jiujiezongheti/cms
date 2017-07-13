@@ -27,6 +27,7 @@
 			<th>等级描叙</th>
 			<th>操作</th>
 		</tr>
+		{if $AllLevel}
 		{foreach $AllLevel(key,value)}
 		<tr>
 			<td>{@value->id}</td>
@@ -38,7 +39,13 @@
 			</td>
 		</tr>
 		{/foreach}
+		{else}
+		<tr>
+			<td colspan='4'>没有数据</td>
+		</tr>
+		{/if}
 	</table>
+	<div id='page'>{$page}</div>
 	{/if}
 	{if $add}
 	<form action="" method='post' name="add">

@@ -37,7 +37,7 @@ class Tool{
 		}else{
 			$_string = htmlspecialchars($date);
 		}
-		return $_string;
+		return @$_string;
 	}
 }
 ?>

@@ -30,6 +30,7 @@
 			<th>最近登录时间</th>
 			<th>操作</th>
 		</tr>
+		{if $AllManage}
 		{foreach $AllManage(key,value)}
 		<tr>
 			<td>{@value->id}</td>
@@ -44,6 +45,11 @@
 			</td>
 		</tr>
 		{/foreach}
+		{else}
+		<tr>
+			<td colspan="7"></td>
+		</tr>
+		{/if}
 	</table>
 	<div id='page'>{$page}</div>
 	{/if}
