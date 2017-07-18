@@ -9,3 +9,19 @@ window.onload = function(){
 		}
 	};
 }
+
+//验证等级表单
+function checkForm(){
+	var fm = document.add;
+	if(fm.nav_name.value==''||fm.nav_name.value.length<2||fm.nav_name.value.length>20){
+		alert("警告:导航不得为空或者小于2位或者大于20位");
+		fm.nav_name.focus();
+		return false;
+	}
+	if(fm.nav_info.value.length>200){
+		alert("警告:导航描叙不得大于200位");
+		fm.nav_info.focus();
+		return false;
+	}
+	return true;
+}

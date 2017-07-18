@@ -1,7 +1,8 @@
 <?php
 require substr(dirname(__FILE__),0,-6).'/init.inc.php';
-// echo ROOT_PATH;exit();
+Validate::checkSession();
 global $tpl;
-//var_dump($tpl);
-new NavAction($tpl); //入口
+$nav = new NavAction($tpl); //入口
+$nav->_action();
+$tpl->display('nav.tpl');
 ?>

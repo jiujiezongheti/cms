@@ -33,9 +33,9 @@ class ValidateCode{
 
 	//生成文字
 	private function createFont(){
-		$this->fontColor = imagecolorallocate($this->img, mt_rand(0,156), mt_rand(0,156), mt_rand(0,156));
 		$_x = $this->width/$this->codelen;
 		for($i=0;$i<$this->codelen;$i++){
+			$this->fontColor = imagecolorallocate($this->img, mt_rand(0,156), mt_rand(0,156), mt_rand(0,156));
 			imagettftext($this->img, $this->fontSize, mt_rand(-30,30), $_x*$i+mt_rand(3,5), $this->height/1.4, $this->fontColor, $this->font, $this->code[$i]);
 		}
 	}

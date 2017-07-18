@@ -53,5 +53,12 @@ class Model{
 		DB::unDB($result,$db);
 		return $total[0];
 	}
+
+		//获取下一个增值id
+	public function nextId($table){
+		$sql = "SHOW TABLE STATUS LIKE '{$table}'";
+		$object = $this->one($sql);
+		return $object->Auto_increment;
+	}
 }
 ?>
