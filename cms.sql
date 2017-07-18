@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2017-07-13 17:00:25
+Date: 2017-07-18 18:27:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -66,8 +66,21 @@ CREATE TABLE `nav` (
   `pid` int(8) DEFAULT NULL COMMENT '子分类',
   `sort` int(8) DEFAULT NULL COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of nav
 -- ----------------------------
+INSERT INTO `nav` VALUES ('2', '军事动态', '军事方面新闻', '0', '2');
+INSERT INTO `nav` VALUES ('3', '八卦娱乐', '娱乐和狗仔新闻1', '0', '3');
+INSERT INTO `nav` VALUES ('4', '时尚女人', '关于时尚女人方面的', '0', '4');
+INSERT INTO `nav` VALUES ('5', '科技频道', '关于最新科技方面的', '0', '5');
+INSERT INTO `nav` VALUES ('6', '智能手机', '关于智能手机方面的推荐', '0', '6');
+INSERT INTO `nav` VALUES ('14', '小米手机', '小米手机小米手机', '5', '14');
+INSERT INTO `nav` VALUES ('8', '热门汽车', '关于汽车方面的东西', '0', '8');
+INSERT INTO `nav` VALUES ('10', '美容护肤', '美容护肤美容护肤', '0', '10');
+INSERT INTO `nav` VALUES ('11', '房产家居', '房产家居房产家居', '0', '11');
+INSERT INTO `nav` VALUES ('12', '读书教育', '读书教育读书教育', '0', '12');
+INSERT INTO `nav` VALUES ('13', '股票基金', '股票基金股票基金', '0', '13');
+INSERT INTO `nav` VALUES ('15', '苹果手机', '苹果手机苹果手机', '5', '15');
+INSERT INTO `nav` VALUES ('16', '牛叉科技', '牛叉科技牛叉科技', '5', '16');
