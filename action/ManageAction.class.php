@@ -65,12 +65,6 @@ class ManageAction extends Action{
 		}
 	}
 
-	//logout
-	private function logout(){
-		Tool::unSession();
-		Tool::alertLocation(null,'admin_login.php');
-	}
-
 	//show 
 	private function _show(){
 		//echo $this->_model->getManageTotal();
