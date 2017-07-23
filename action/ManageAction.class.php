@@ -3,11 +3,9 @@ class ManageAction extends Action{
 	//构造方法
 	public function __construct(&$tpl){
 		parent::__construct($tpl,new ManageModel());
-		$this->_action();
-		$this->_tpl->display('manage.tpl');
 	}
 	//action
-	private function _action(){
+	public function _action(){
 		if(!!$action=isset($_GET['action'])?$_GET['action']:''){
 			if($action=='login')$this->login();
 			Validate::checkSession();
@@ -23,9 +21,6 @@ class ManageAction extends Action{
 					break;
 				case 'update':
 					$this->_update();
-					break;
-				case 'logout':
-					$this->logout();
 					break;
 				case 'logout':
 					$this->logout();
@@ -64,6 +59,7 @@ class ManageAction extends Action{
 			}
 		}
 	}
+
 
 	//show 
 	private function _show(){
@@ -113,11 +109,12 @@ class ManageAction extends Action{
 		}
 		if(isset($_GET['id'])){
 			$this->_model->id = $_GET['id'];
-			is_object($this->_model->getOneManage())?true:Tool::alertBack('不存在的管理员');
+			$_manage = $this->_model->getOneManage();
+			is_object($_manage)?true:Tool::alertBack('不存在的管理员');
 			$this->_tpl->assign('id',$this->_model->id);
-			$this->_tpl->assign('admin_user',$this->_model->getOneManage()->admin_user);
-			$this->_tpl->assign('level',$this->_model->getOneManage()->level);
-			$this->_tpl->assign('admin_pass',$this->_model->getOneManage()->admin_pass);
+			$this->_tpl->assign('admin_user',$_manage->admin_user);
+			$this->_tpl->assign('level',$_manage->level);
+			$this->_tpl->assign('admin_pass',$_manage->admin_pass);
 			$this->_tpl->assign('update',true);
 			$this->_tpl->assign('title','修改管理员');
 			$_level = new LevelModel();

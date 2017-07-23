@@ -9,7 +9,7 @@ class Page{
 	private $url;    //地址
 	private $bothnum;//两边保持数量
 	public function __construct($total,$pagesize){
-		$this->total = $total;
+		$this->total = $total?$total:1;
 		$this->pagesize = $pagesize;
 		$this->pagenum = ceil($this->total/$this->pagesize);
 		$this->page = $this->setPage();

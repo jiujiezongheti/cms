@@ -7,7 +7,7 @@ class Model{
 		$result = $db->query($sql);
 		$object = $result->fetch_object();
 		DB::unDB($result,$db);
-		return $object;
+		return Tool::htmlString($object);
 	}
 
 	//查找多个数据模型
@@ -16,21 +16,23 @@ class Model{
 		//获取结果集
 		$result = $db->query($sql);
 		$html = array();
-		//打印第一组数据
-		while(!!$object = $result->fetch_object()){
-			$html[] = $object;
-		};
-		DB::unDB($result,$db);
-		foreach ($html as $key => $value) {
-			if(isset($value->last_time)){
-				$html[$key]->last_time = date('Y-m-d H:i:s',$value->last_time);
+		if($result){
+			//打印第一组数据
+			while(!!$object = $result->fetch_object()){
+				$html[] = $object;
+			};
+			DB::unDB($result,$db);
+			foreach ($html as $key => $value) {
+				if(isset($value->last_time)){
+					$html[$key]->last_time = date('Y-m-d H:i:s',$value->last_time);
+				}
+				if(isset($value->login_count)){
+					$html[$key]->login_count = $value->login_count-0;
+				}	
 			}
-			if(isset($value->login_count)){
-				$html[$key]->login_count = $value->login_count-0;
-			}
-			
 		}
-		return $html;
+		return Tool::htmlString($html);
+		
 	}
 
 
@@ -50,6 +52,13 @@ class Model{
 		$total = $result->fetch_row();
 		DB::unDB($result,$db);
 		return $total[0];
+	}
+
+		//获取下一个增值id
+	public function nextId($table){
+		$sql = "SHOW TABLE STATUS LIKE '{$table}'";
+		$object = $this->one($sql);
+		return $object->Auto_increment;
 	}
 }
 ?>

@@ -2,13 +2,10 @@
 class LevelAction extends Action{
 	//构造方法
 	public function __construct(&$tpl){
-		Validate::checkSession();
 		parent::__construct($tpl,new LevelModel());
-		$this->_action();
-		$this->_tpl->display('level.tpl');
 	}
 	//action
-	private function _action(){
+	public function _action(){
 		if(!!$action=isset($_GET['action'])?$_GET['action']:''){
 			switch ($action) {
 				case 'show':
@@ -33,9 +30,12 @@ class LevelAction extends Action{
 
 	//show 
 	private function _show(){
+		$page = new Page($this->_model->getLevelTotal(),PAGE_SIZE);
+		$this->_model->limit = $page->limit;
 		$this->_tpl->assign('show',true);
 		$this->_tpl->assign('title','等级列表');
 		$this->_tpl->assign('AllLevel',$this->_model->getAllLevel());
+		$this->_tpl->assign('page',$page->showpage());
 	}
 	//add
 	private function _add(){
@@ -66,10 +66,11 @@ class LevelAction extends Action{
 		}
 		if(isset($_GET['id'])){
 			$this->_model->id = $_GET['id'];
-			is_object($this->_model->getOneLevel())?true:Tool::alertBack('不存在的等级');
-			$this->_tpl->assign('id',$this->_model->id);
-			$this->_tpl->assign('level_name',$this->_model->getOneLevel()->level_name);
-			$this->_tpl->assign('level_info',$this->_model->getOneLevel()->level_info);
+			$_level = $this->_model->getOneLevel();
+			is_object($_level)?true:Tool::alertBack('不存在的等级');
+			$this->_tpl->assign('id',$_level->id);
+			$this->_tpl->assign('level_name',$_level->level_name);
+			$this->_tpl->assign('level_info',$_level->level_info);
 			$this->_tpl->assign('update',true);
 			$this->_tpl->assign('title','修改等级');
 		

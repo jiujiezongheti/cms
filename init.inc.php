@@ -19,9 +19,8 @@ function __autoload($className){
 		require ROOT_PATH.'/includes/'.$className.'.class.php';
 	}
 }
-//缓存机制
-require 'cache.inc.php';
 //实例化模板类
 $tpl = new Templates();
-
+//初始化
+require 'common.inc.php';
 ?>
