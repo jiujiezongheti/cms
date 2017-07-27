@@ -15,7 +15,9 @@
 		<li><a href="/">首页</a></li>
 		<?php if(@$this->_vars['FrontNav']){;?>
 		<?php foreach($this->_vars['FrontNav'] as $key=>$value){?>
-		<li><a href="<?php echo $value->id;?>"><?php echo $value->nav_name;?></a></li>
+		<li>
+			<a href="<?php echo $value->id;?>"><?php echo $value->nav_name;?></a>
+		</li>
 		<?php }?>
 		<?php };?>
 	</ul>
