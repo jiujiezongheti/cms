@@ -14,11 +14,12 @@ class ValidateCode{
 
 	//构造方法初始化
 	public function __construct($codelen=4,$width=130,$height=50,$fontSize=20){
-		$this->font = ROOT_PATH.'/font/ebrima.ttf';
+		$this->font = dirname(__FILE__).'/font/ebrima.ttf';
 		$this->codelen = $codelen;
 		$this->width = $width;
 		$this->height = $height;
 		$this->fontSize = $fontSize;
+		$this->createCode();
 	}
 	//生成随机码
 	private function createCode(){
@@ -26,6 +27,7 @@ class ValidateCode{
 		for($i=0;$i<$this->codelen;$i++){
 			$this->code .=$this->charset[mt_rand(0,$_len)];
 		}
+		$_SESSION['code'] = strtolower($this->code);  //将生成的code码保存在session中
 	}
 
 	//创建背景
@@ -67,15 +69,10 @@ class ValidateCode{
 	//对外生成
 	public function doimg(){
 		$this->createBg();
-		$this->createCode();
 		$this->createLine();
 		$this->createFont();
 		$this->outPut();
-	}
 
-	//获取验证码
-	public function getCode(){
-		return strtolower($this->code);
 	}
 }	
 
