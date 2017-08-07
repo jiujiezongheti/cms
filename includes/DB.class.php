@@ -2,6 +2,7 @@
 //数据库链接类
 class DB{
 	//获取数据对象句柄
+
 	static public function getDB(){
 		$_mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 		if(mysqli_connect_errno()){
@@ -13,10 +14,17 @@ class DB{
 	}
 
 	//清理
-	static public function unDB(&$result,&$db){
+
+    /**
+     * @param $result
+     * @param $db
+     */
+    static public function unDB(&$result, &$db){
 		if(is_object($result)){
 			//清理结果集
-			$result->free();
+            if (isset($result)) {
+                $result->free();
+            }
 			//销毁结果对象
 			$result = null;
 		}
