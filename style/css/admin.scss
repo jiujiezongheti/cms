@@ -150,15 +150,21 @@ input,textarea{
 			border:1px solid #ccc;
 			margin-left:60px;
 		}
-		input.text{
+		input{
+			&.text{
 			width: 220px;
 			height: 19px;
 			background:#fff;
 			border:1px solid #ccc;
-		}
-		input.submit{
-			cursor: pointer;
-			margin-left: 60px;
+			}
+			&.submit{
+				cursor: pointer;
+				margin-left: 60px;
+			}
+			&.sort{
+				width: 30px;
+				text-align: center;
+			}
 		}
 	}
 	ol{

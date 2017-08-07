@@ -129,6 +129,9 @@ input, textarea {
   #main form input.submit {
     cursor: pointer;
     margin-left: 60px; }
+  #main form input.sort {
+    width: 30px;
+    text-align: center; }
   #main ol {
     padding: 0 0 0 26px;
     height: 35px; }
@@ -193,3 +196,5 @@ input, textarea {
     padding: 2px 5px;
     margin: 0 2px;
     color: #ccc; }
+
+/*# sourceMappingURL=admin.css.map */

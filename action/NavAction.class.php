@@ -29,6 +29,9 @@ class NavAction extends Action{
 				case 'showchild':
 					$this->_showchild();
 					break;
+                case 'sort':
+                    $this->sort();
+                    break;
 				default:
 					Tool::alertBack("非法操作！");
 					break;
@@ -67,7 +70,10 @@ class NavAction extends Action{
 			$this->_tpl->assign('prev_name',$_nav->nav_name);
 		}
 	}
-	//show 
+
+    /**
+     * show
+     */
 	private function _show(){
 		//echo $this->_model->getNavTotal();exit();
 		$page = new Page($this->_model->getNavTotal(),PAGE_SIZE);
@@ -77,7 +83,10 @@ class NavAction extends Action{
 		$this->_tpl->assign('AllNav',$this->_model->getAllNav());
 		$this->_tpl->assign('page',$page->showpage());
 	}
-	//add
+
+    /**
+     * add
+     */
 	private function _add(){
 		if(isset($_POST['submit'])){
 			if(Validate::checkNull($_POST['nav_name']))Tool::alertBack('警告:导航不得为空');
@@ -94,7 +103,10 @@ class NavAction extends Action{
 		$this->_tpl->assign('add',true);
 		$this->_tpl->assign('title','新增导航');
 	}
-	//update
+
+    /**
+     * update
+     */
 	private function _update(){
 		if (isset($_POST['submit'])) {
 			if(Validate::checkNull($_POST['nav_name']))Tool::alertBack('警告:导航不得为空');
@@ -130,9 +142,18 @@ class NavAction extends Action{
 		}
 	}
 
-	//showfront
+    /**
+     * showfront
+     */
 	public function showfront(){
 		$this->_tpl->assign('FrontNav',$this->_model->getFrontNav());
 	}
+
+
+	private function sort(){
+        if(isset($_POST['send'])){
+            echo $_POST['sort'];
+        }
+    }
 }
 ?>

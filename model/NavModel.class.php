@@ -22,17 +22,25 @@ class NavModel extends Model{
 		return parent::total($_sql);
 	}
 
-	//获取所有记录条数(子)
-	public function getNavChildTotal(){
+
+    /**
+     * 获取所有记录条数(子)
+     * @return mixed
+     */
+    public function getNavChildTotal(){
 		$_sql = "SELECT COUNT(*) FROM nav WHERE pid='$this->id'";
 		return parent::total($_sql);
 	}
-	//查询所有导航
-	public function getAllNav(){
+
+    /**
+     * 查询所有导航
+     * @return string
+     */
+    public function getAllNav(){
 		//过程化操作数据库
-		$sql = "SELECT id,nav_name,nav_info 
+		$sql = "SELECT id,nav_name,nav_info,sort 
 				FROM nav WHERE pid=0 
-				ORDER BY `id` ASC $this->limit";
+				ORDER BY `sort` ASC $this->limit";
 		//return $sql;
 		return parent::all($sql);
 	}
@@ -88,7 +96,9 @@ class NavModel extends Model{
 	//前台显示指定主导航
 	public function getFrontNav(){
 		$_sql = "SELECT id,nav_name 
-				FROM nav WHERE pid=0 LIMIT 0,".NAV_SIZE;
+				FROM nav WHERE pid=0 
+				ORDER BY sort ASC 
+				LIMIT 0,".NAV_SIZE;
 		return parent::all($_sql);
 	}
 }

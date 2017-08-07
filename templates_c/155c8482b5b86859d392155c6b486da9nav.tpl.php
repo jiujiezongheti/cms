@@ -26,33 +26,43 @@
 	</ol>
 
 	<?php if(@$this->_vars['show']){;?>
-	<table cellspacing="0">
-		<tr>
-			<th>编号</th>
-			<th>导航名称</th>
-			<th>描叙</th>
-			<th>子类</th>
-			<th>操作</th>
-		</tr>
-		<?php if(@$this->_vars['AllNav']){;?>
-		<?php foreach($this->_vars['AllNav'] as $key=>$value){?>
-		<tr>
-			<td><?php echo $value->id;?></td>
-			<td><?php echo $value->nav_name;?></td>
-			<td><?php echo $value->nav_info;?></td>
-			<td><a href="nav.php?action=showchild&id=<?php echo $value->id;?>">查看</a>|<a href="nav.php?action=addchild&id=<?php echo $value->id;?>">增加子类</a></td>
-			<td>
-				<a href="nav.php?action=update&id=<?php echo $value->id;?>">修改</a> | 
-				<a href="nav.php?action=delete&id=<?php echo $value->id;?>" onclick="return confirm('确定要删除？')?true:false;">删除</a>
-			</td>
-		</tr>
-		<?php }?>
-		<?php }else{?>
-		<tr>
-			<td colspan='5'>没有任何数据</td>
-		</tr>
-		<?php };?>
-	</table>
+	<form action="nav.php?action=sort" method="post">
+		<table cellspacing="0">
+			<tr>
+				<th>编号</th>
+				<th>导航名称</th>
+				<th>描叙</th>
+				<th>子类</th>
+				<th>操作</th>
+				<th>排序</th>
+			</tr>
+			<?php if(@$this->_vars['AllNav']){;?>
+			<?php foreach($this->_vars['AllNav'] as $key=>$value){?>
+			<tr>
+				<td><?php echo $value->id;?></td>
+				<td><?php echo $value->nav_name;?></td>
+				<td><?php echo $value->nav_info;?></td>
+				<td><a href="nav.php?action=showchild&id=<?php echo $value->id;?>">查看</a>|<a href="nav.php?action=addchild&id=<?php echo $value->id;?>">增加子类</a></td>
+				<td>
+					<a href="nav.php?action=update&id=<?php echo $value->id;?>">修改</a> |
+					<a href="nav.php?action=delete&id=<?php echo $value->id;?>" onclick="return confirm('确定要删除？')?true:false;">删除</a>
+				</td>
+				<td><input type="text" name="sort" value="<?php echo $value->sort;?>" class="text sort"></td>
+			</tr>
+			<?php }?>
+			<?php }else{?>
+			<tr>
+				<td colspan='6'>没有任何数据</td>
+			</tr>
+			<?php };?>
+			<tr>
+				<td></td><td></td><td></td><td></td><td></td>
+				<td>
+					<input type="submit" name="send" value="排序" style="cursor: pointer">
+				</td>
+			</tr>
+		</table>
+	</form>
 	<div id='page'><?php echo @$this->_vars['page'];?></div>
 	<?php };?>
 	

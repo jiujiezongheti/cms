@@ -26,33 +26,43 @@
 	</ol>
 
 	{if $show}
-	<table cellspacing="0">
-		<tr>
-			<th>编号</th>
-			<th>导航名称</th>
-			<th>描叙</th>
-			<th>子类</th>
-			<th>操作</th>
-		</tr>
-		{if $AllNav}
-		{foreach $AllNav(key,value)}
-		<tr>
-			<td>{@value->id}</td>
-			<td>{@value->nav_name}</td>
-			<td>{@value->nav_info}</td>
-			<td><a href="nav.php?action=showchild&id={@value->id}">查看</a>|<a href="nav.php?action=addchild&id={@value->id}">增加子类</a></td>
-			<td>
-				<a href="nav.php?action=update&id={@value->id}">修改</a> | 
-				<a href="nav.php?action=delete&id={@value->id}" onclick="return confirm('确定要删除？')?true:false;">删除</a>
-			</td>
-		</tr>
-		{/foreach}
-		{else}
-		<tr>
-			<td colspan='5'>没有任何数据</td>
-		</tr>
-		{/if}
-	</table>
+	<form action="nav.php?action=sort" method="post">
+		<table cellspacing="0">
+			<tr>
+				<th>编号</th>
+				<th>导航名称</th>
+				<th>描叙</th>
+				<th>子类</th>
+				<th>操作</th>
+				<th>排序</th>
+			</tr>
+			{if $AllNav}
+			{foreach $AllNav(key,value)}
+			<tr>
+				<td>{@value->id}</td>
+				<td>{@value->nav_name}</td>
+				<td>{@value->nav_info}</td>
+				<td><a href="nav.php?action=showchild&id={@value->id}">查看</a>|<a href="nav.php?action=addchild&id={@value->id}">增加子类</a></td>
+				<td>
+					<a href="nav.php?action=update&id={@value->id}">修改</a> |
+					<a href="nav.php?action=delete&id={@value->id}" onclick="return confirm('确定要删除？')?true:false;">删除</a>
+				</td>
+				<td><input type="text" name="sort" value="{@value->sort}" class="text sort"></td>
+			</tr>
+			{/foreach}
+			{else}
+			<tr>
+				<td colspan='6'>没有任何数据</td>
+			</tr>
+			{/if}
+			<tr>
+				<td></td><td></td><td></td><td></td><td></td>
+				<td>
+					<input type="submit" name="send" value="排序" style="cursor: pointer">
+				</td>
+			</tr>
+		</table>
+	</form>
 	<div id='page'>{$page}</div>
 	{/if}
 	
