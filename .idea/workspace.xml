@@ -3,19 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f57ee205-a02f-449b-9c60-cbfb01d325e3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/ManageAction.class.php" afterPath="$PROJECT_DIR$/action/ManageAction.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/NavAction.class.php" afterPath="$PROJECT_DIR$/action/NavAction.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/admin_login.php" afterPath="$PROJECT_DIR$/admin/admin_login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/manage.php" afterPath="$PROJECT_DIR$/admin/manage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/NavModel.class.php" afterPath="$PROJECT_DIR$/model/NavModel.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/css/admin.css" afterPath="$PROJECT_DIR$/style/css/admin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/css/admin.scss" afterPath="$PROJECT_DIR$/style/css/admin.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/admin_login.tpl" afterPath="$PROJECT_DIR$/templates/admin_login.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nav.tpl" afterPath="$PROJECT_DIR$/templates/nav.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/top.tpl" afterPath="$PROJECT_DIR$/templates/top.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_c/155c8482b5b86859d392155c6b486da9nav.tpl.php" afterPath="$PROJECT_DIR$/templates_c/155c8482b5b86859d392155c6b486da9nav.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_c/15f68e168bc360bcb3a20dda8f934614admin_login.tpl.php" afterPath="$PROJECT_DIR$/templates_c/15f68e168bc360bcb3a20dda8f934614admin_login.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates_c/a76bcc64829a51022b07aba06874e94ftop.tpl.php" afterPath="$PROJECT_DIR$/templates_c/a76bcc64829a51022b07aba06874e94ftop.tpl.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -101,8 +88,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="41" />
-    <option name="y" value="55" />
+    <option name="x" value="403" />
+    <option name="y" value="57" />
     <option name="width" value="1400" />
     <option name="height" value="882" />
   </component>
@@ -175,7 +162,7 @@
       <workItem from="1502081754877" duration="613000" />
       <workItem from="1502083633106" duration="660000" />
       <workItem from="1502084656379" duration="23000" />
-      <workItem from="1502084706111" duration="6482000" />
+      <workItem from="1502084706111" duration="7176000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1502078095192</created>
@@ -184,14 +171,21 @@
       <option name="project" value="LOCAL" />
       <updated>1502078095193</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="phpstorm提交测试">
+      <created>1502109105208</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1502109105208</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9483000" />
+    <option name="totallyTimeSpent" value="10177000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="55" width="1400" height="882" extended-state="0" />
+    <frame x="403" y="57" width="1400" height="882" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16546243" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -258,7 +252,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试" />
+    <MESSAGE value="phpstorm提交测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="phpstorm提交测试" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
