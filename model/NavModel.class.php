@@ -48,9 +48,9 @@ class NavModel extends Model{
 	//查询所有导航(子)
 	public function getAllChildNav(){
 		//过程化操作数据库
-		$sql = "SELECT id,nav_name,nav_info 
+		$sql = "SELECT id,nav_name,nav_info,sort 
 				FROM nav WHERE pid='$this->id' 
-				ORDER BY `id` ASC $this->limit";
+				ORDER BY `sort` ASC $this->limit";
 		//return $sql;
 		return parent::all($sql);
 	}
@@ -101,5 +101,13 @@ class NavModel extends Model{
 				LIMIT 0,".NAV_SIZE;
 		return parent::all($_sql);
 	}
+
+	//导航排序
+    public function setNavSort(){
+        $sql = '';
+        foreach ($this->sort as $key=>$value){
+            $sql .= "UPDATE nav SET sort='$value' WHERE id='$key';";
+        }
+        return parent::multi($sql);
+    }
 }
-?>

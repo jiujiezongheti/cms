@@ -2,7 +2,8 @@
 class ManageAction extends Action{
 	//构造方法
 	public function __construct(&$tpl){
-		parent::__construct($tpl,new ManageModel());
+	    $manage = new ManageModel();
+		parent::__construct($tpl,$manage);
 	}
 	//action
 	public function _action(){

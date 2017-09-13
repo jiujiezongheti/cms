@@ -60,5 +60,11 @@ class Model{
 		$object = $this->one($sql);
 		return $object->Auto_increment;
 	}
+	//执行多条sql语句
+	public function multi($sql){
+        $_db = DB::getDB();
+        $_db->multi_query($sql);
+        DB::unDB($result = null,$_db);
+        return true;
+    }
 }
-?>

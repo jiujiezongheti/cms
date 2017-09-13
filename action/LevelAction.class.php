@@ -2,7 +2,8 @@
 class LevelAction extends Action{
 	//构造方法
 	public function __construct(&$tpl){
-		parent::__construct($tpl,new LevelModel());
+	    $manage = new LevelModel();
+		parent::__construct($tpl,$manage);
 	}
 	//action
 	public function _action(){

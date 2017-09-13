@@ -9,7 +9,8 @@
 class LoginAction extends Action{
     //构造方法
     public function __construct(&$tpl){
-        parent::__construct($tpl,new ManageModel());
+        $model = new ManageModel();
+        parent::__construct($tpl,$model);
     }
 
     //action
@@ -50,6 +51,8 @@ class LoginAction extends Action{
             $login = $this->_model->getLoginManage();
             if ($login) {
                 $_SESSION['admin']=$login;
+                $this->_model->id=$login->id;
+                $this->_model->updateLoginManage();
                 Tool::alertLocation(null,'admin.php');
             }else{
                 Tool::alertBack('警告：用户名或密码错误');

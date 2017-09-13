@@ -2,10 +2,8 @@
 class NavAction extends Action{
 	//构造方法
 	public function __construct(&$tpl){
-		
-		parent::__construct($tpl,new NavModel());
-		
-
+		$model = new NavModel();
+		parent::__construct($tpl,$model);
 	}
 	//action
 	public function _action(){
@@ -149,11 +147,11 @@ class NavAction extends Action{
 		$this->_tpl->assign('FrontNav',$this->_model->getFrontNav());
 	}
 
-
+    //sort
 	private function sort(){
         if(isset($_POST['send'])){
-            echo $_POST['sort'];
+            $this->_model->sort = $_POST['sort'];
+            if($this->_model->setNavSort())Tool::alertLocation(null,$_SERVER['HTTP_REFERER']);
         }
     }
 }
-?>
