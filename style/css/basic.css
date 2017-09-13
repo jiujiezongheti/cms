@@ -1,0 +1,169 @@
+body, h1, h2, h3, p, form, ul, dl, dd, dt {
+  margin: 0;
+  padding: 0; }
+
+body {
+  width: 960px;
+  margin: 0 auto;
+  background: #fff;
+  font-size: 12px;
+  color: #666; }
+
+ul {
+  list-style: none; }
+
+h2 {
+  font-size: 12px;
+  height: 26px;
+  line-height: 26px;
+  background: #eee;
+  color: #360;
+  text-indent: 10px;
+  letter-spacing: 1px; }
+
+#top {
+  height: 26px;
+  margin-bottom: 10px;
+  background: #eee;
+  text-align: right;
+  line-height: 26px; }
+  #top a {
+    margin-right: 10px;
+    color: red; }
+
+#header {
+  height: 80px;
+  margin-bottom: 10px; }
+  #header h1 {
+    width: 250px;
+    height: 80px;
+    background: #eee;
+    font-size: 12px;
+    float: left; }
+    #header h1 a {
+      height: 80px;
+      display: block;
+      text-indent: -999px; }
+  #header div.adver {
+    width: 690px;
+    height: 80px;
+    float: right; }
+    #header div.adver img {
+      display: block;
+      width: 100%;
+      height: 100%; }
+
+#nav {
+  height: 35px;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-bottom: none; }
+  #nav ul {
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 10px; }
+    #nav ul li {
+      display: inline-block;
+      padding: 0 10px; }
+      #nav ul li a {
+        color: #369;
+        text-decoration: none; }
+        #nav ul li a:hover {
+          color: #f60; }
+
+#search {
+  height: 25px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 5px 0 0 5px; }
+  #search form {
+    float: left; }
+    #search form select {
+      height: 22px;
+      background: #fff;
+      vertical-align: bottom; }
+    #search form input.text {
+      width: 200px;
+      background: #fff;
+      height: 16px;
+      padding-left: 5px;
+      outline: none;
+      vertical-align: bottom; }
+    #search form input.submit {
+      width: 45px;
+      height: 22px;
+      vertical-align: bottom;
+      font-size: 12px;
+      cursor: pointer; }
+  #search strong {
+    float: left;
+    padding: 5px 0 0 15px; }
+  #search ul {
+    float: left;
+    padding: 5px 0 0 0; }
+    #search ul li {
+      float: left;
+      padding-right: 8px; }
+      #search ul li a {
+        color: green;
+        text-decoration: none; }
+        #search ul li a:hover {
+          color: #f60; }
+
+#link {
+  width: 958px;
+  height: 108px;
+  float: left;
+  margin-bottom: 10px;
+  border: 1px solid #ccc; }
+  #link h2 span {
+    float: right;
+    font-weight: 300;
+    padding-right: 10px; }
+    #link h2 span a {
+      color: #360;
+      text-decoration: none; }
+      #link h2 span a:hover {
+        color: #f60; }
+  #link ul {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    border-bottom: 1px dashed #999;
+    width: 98%;
+    margin: 0 auto; }
+    #link ul li {
+      display: inline;
+      padding: 5px 5px 0; }
+      #link ul li a {
+        color: #666;
+        text-decoration: none; }
+        #link ul li a:hover {
+          text-decoration: underline; }
+  #link dl {
+    padding: 10px 0 0 8px; }
+    #link dl dd {
+      float: left;
+      padding: 0 8px; }
+      #link dl dd img {
+        width: 88px;
+        height: 31px;
+        border: none;
+        vertical-align: top; }
+
+#footer {
+  width: 960px;
+  height: 40px;
+  float: left; }
+  #footer p {
+    text-align: center;
+    line-height: 150%;
+    font-family: Tahoma;
+    color: #333; }
+    #footer p span {
+      color: #06f; }
+
+/*# sourceMappingURL=basic.css.map */

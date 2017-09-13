@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title><?php echo $this->_config['webname'];?></title>
 	<link rel="stylesheet" href="style/css/index.css">
+	<link rel="stylesheet" href="style/css/basic.css">
 </head>
 <body>
 	<?php $tpl->create('header.tpl');?>
