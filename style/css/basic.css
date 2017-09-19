@@ -166,4 +166,24 @@ h2 {
     #footer p span {
       color: #06f; }
 
+#page {
+  text-align: center;
+  padding: 10px; }
+  #page a {
+    border: 1px solid #666;
+    padding: 2px 5px;
+    margin: 0 2px; }
+  #page span.me, #page a:hover {
+    color: #fff;
+    border: 1px solid #000;
+    background: #000;
+    text-decoration: none;
+    padding: 2px 5px;
+    margin: 0 2px; }
+  #page span.disabled {
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+    margin: 0 2px;
+    color: #ccc; }
+
 /*# sourceMappingURL=basic.css.map */
