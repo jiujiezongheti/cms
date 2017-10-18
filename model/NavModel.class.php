@@ -55,6 +55,16 @@ class NavModel extends Model{
 		return parent::all($sql);
 	}
 
+	//查找所有子导航，不带limit
+    public function getAllChildFrontNav(){
+        //过程化操作数据库
+        $sql = "SELECT id,nav_name,nav_info,sort 
+				FROM nav WHERE pid='$this->id' 
+				ORDER BY `sort` ASC";
+        //return $sql;
+        return parent::all($sql);
+    }
+
 	//新增
 	public function addNav(){
 		$time = time();
@@ -69,9 +79,11 @@ class NavModel extends Model{
 
 	//查询单个
 	public function getOneNav(){
-		$sql = "SELECT id,nav_name,nav_info
-				FROM nav 
-				WHERE id='{$this->id}' OR nav_name='{$this->nav_name}' 
+		$sql = "SELECT n1.id,n1.nav_name,n1.nav_info,n2.id iid,n2.nav_name nnav_name
+				FROM nav n1 
+				LEFT JOIN nav n2 
+				ON n1.pid=n2.id 
+				WHERE n1.id='{$this->id}' OR n1.nav_name='{$this->nav_name}' 
 				LIMIT 1";
 		return parent::one($sql);
 	}

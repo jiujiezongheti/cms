@@ -16,7 +16,7 @@
 		{if $FrontNav}
 		{foreach $FrontNav(key,value)}
 		<li>
-			<a href="{@value->id}">{@value->nav_name}</a>
+			<a href="list.php?id={@value->id}">{@value->nav_name}</a>
 		</li>
 		{/foreach}
 		{/if}

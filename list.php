@@ -8,5 +8,7 @@
 
 require_once dirname(__FILE__)."/init.inc.php";
 global $tpl;
+$list = new ListAction($tpl);
 //载入tpl文件
+$list->getNav();
 $tpl->display('list.tpl');

@@ -9,7 +9,7 @@
 <body>
 	{include file="header.tpl"}
 	<div id="list">
-		<h2>当前位置&gt;军事动态</h2>
+		<h2>当前位置&gt;{$nav}</h2>
 		<dl>
 			<dt><img src="../images/img4.jpg" alt="#"></dt>
 			<dd>[<strong>军事动态</strong>] <a href="#">联合梨花因散布涨价信息被罚200万</a></dd>
@@ -45,8 +45,13 @@
 	<div id="sidebar">
 		<div class="nav">
 			<h2>子栏目列表</h2>
-			<strong><a href="#">中国军事</a></strong>
-			<strong><a href="#">美国军事</a></strong>
+			{if $childNav}
+				{foreach $childNav(key,val)}
+					<strong><a href="/list.php?id={@val->id}">{@val->nav_name}</a></strong>
+				{/foreach}
+			{else}
+				<span>该栏目没有子类</span>
+			{/if}
 		</div>
 		<div class="right">
 			<h2>本类推荐</h2>

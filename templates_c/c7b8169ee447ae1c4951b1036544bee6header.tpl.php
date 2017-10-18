@@ -16,7 +16,7 @@
 		<?php if(@$this->_vars['FrontNav']){;?>
 		<?php foreach($this->_vars['FrontNav'] as $key=>$value){?>
 		<li>
-			<a href="<?php echo $value->id;?>"><?php echo $value->nav_name;?></a>
+			<a href="list.php?id=<?php echo $value->id;?>"><?php echo $value->nav_name;?></a>
 		</li>
 		<?php }?>
 		<?php };?>

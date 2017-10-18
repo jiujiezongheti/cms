@@ -24,6 +24,10 @@ class Templates{
 		if(!file_exists($_tplfile)){
 			exit('error:模板文件不存在');
 		}
+		//是否加入参数
+        if(!empty($_SERVER['QUERY_STRING'])){
+            $file .= $_SERVER['QUERY_STRING'];
+        }
 		//生成编译文件
 		$_parfile = TPL_C_DIR.md5($file).$file.'.php';
 		//缓存文件

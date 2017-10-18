@@ -5,6 +5,11 @@
   margin-bottom: 10px; }
   #list h2 {
     border: 1px solid #ccc; }
+    #list h2 a {
+      color: #360;
+      text-decoration: none; }
+      #list h2 a:hover {
+        color: #f60; }
   #list dl {
     height: 110px;
     margin: 10px 0;
@@ -40,6 +45,9 @@
     text-align: center;
     padding-bottom: 5px;
     margin-bottom: 10px; }
+    #sidebar .nav span {
+      display: inline-block;
+      padding-top: 5px; }
     #sidebar .nav strong {
       width: 110px;
       height: 25px;
