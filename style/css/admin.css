@@ -90,16 +90,28 @@ input, textarea {
     color: #3b6ea5; }
     #main a:hover {
       text-decoration: underline; }
+  #main table.cke_dialog {
+    width: auto; }
+    #main table.cke_dialog tr {
+      background: none; }
   #main table {
     width: 95%;
     text-align: center;
-    margin: 0 auto; }
+    margin-left: auto;
+    margin-right: auto; }
+    #main table table {
+      width: 100%;
+      text-align: left; }
     #main table.left {
       text-align: left; }
     #main table tr {
       background: #fff; }
       #main table tr:hover {
         background: #ffc; }
+      #main table tr.ckeditor {
+        background: none; }
+        #main table tr.ckeditor tr {
+          background: none; }
     #main table th, #main table td {
       height: 30px;
       line-height: 30px;
@@ -110,6 +122,23 @@ input, textarea {
       font-weight: 300; }
     #main table td {
       border-bottom: 1px solid #eee; }
+    #main table.content td {
+      text-align: left;
+      padding-left: 5px; }
+      #main table.content td input.text {
+        width: 440px; }
+      #main table.content td input.small {
+        width: 100px; }
+      #main table.content td select {
+        width: 150px;
+        height: 22px; }
+      #main table.content td textarea {
+        margin: 0;
+        width: 440px;
+        height: 80px;
+        overflow: auto; }
+      #main table.content td span.middle {
+        vertical-align: 30px; }
   #main form select {
     width: 100px;
     height: 19px;
