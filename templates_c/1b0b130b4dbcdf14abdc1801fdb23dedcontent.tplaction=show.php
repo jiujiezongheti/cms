@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>main</title>
 	<link rel="stylesheet" href="../style/css/admin.css">
-	<script src='../js/admin_level.js'></script>
+	<script src='../js/admin_content.js'></script>
 	<script src="../ckeditor/ckeditor.js"></script>
 </head>
 <body id='main'>
@@ -50,7 +50,10 @@
 					<td>关键字：<input type="text" name="keyword" class="text"></td>
 				</tr>
 				<tr>
-					<td>缩略图：<input type="text" name="thumbnail" class="text"></td>
+					<td>缩略图：
+						<input type="text" name="thumbnail" class="text">
+						<input type="button" value="上传缩略图" onclick="centerWindow('../templates/upload.html','upload','400','100')">
+					</td>
 				</tr>
 				<tr>
 					<td>文章来源：<input type="text" name="source" class="text"></td>

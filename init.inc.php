@@ -9,6 +9,8 @@ date_default_timezone_set('PRC');
 define('ROOT_PATH',dirname(__FILE__));
 //引入配置信息
 require ROOT_PATH.'/config/profile.inc.php';
+//设置时区
+date_default_timezone_set('Asia/Shanghai');
 //自动加载类
 function __autoload($className){
 	if(substr($className,-6)=='Action'){
