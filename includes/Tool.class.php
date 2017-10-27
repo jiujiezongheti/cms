@@ -39,5 +39,14 @@ class Tool{
 		}
 		return @$_string;
 	}
+
+	//弹窗赋值关闭(上传专用)
+    static public function alertOpenerClose($info,$path){
+        echo "<script>alert('$info');</script>";
+        echo "<script>opener.document.content.thumbnail.value='$path';</script>";
+        echo "<script>opener.document.content.pic.style.display='block';</script>";
+        echo "<script>opener.document.content.pic.src='$path';</script>";
+        echo "<script>window.close();</script>";
+        exit();
+    }
 }
-?>

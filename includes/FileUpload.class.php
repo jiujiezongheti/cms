@@ -13,6 +13,7 @@ class FileUpload{
     private $type;    //类型
     private $typeArr = ['image/jpeg','image/pjpeg','image/png','image/x-png','image/gif']; //类型合集
     private $path;    //目录路径
+    private $linktoday;//当天时间
     private $today;   //当天目录
     private $name;    //文件名
     private $tmp;     //临时文件
@@ -24,7 +25,8 @@ class FileUpload{
         $this->maxsize = $maxsize/1024;
         $this->type = $_FILES[$_file]['type'];
         $this->path = ROOT_PATH . UPDIR;
-        $this->today = $this->path.date('Ymd').'/';
+        $this->linktoday = date('Ymd').'/';
+        $this->today = $this->path.$this->linktoday;
         $this->name = $_FILES[$_file]['name'];
         $this->tmp = $_FILES[$_file]['tmp_name'];
         $this->checkError();
@@ -35,6 +37,9 @@ class FileUpload{
 
     //返回路径
     public function getPath(){
+        $path = $_SERVER['SCRIPT_NAME'];
+        $dir = dirname(dirname($path));
+        $this->linkPath = $dir.$this->linkPath;
         return $this->linkPath;
     }
 
@@ -55,7 +60,8 @@ class FileUpload{
         $_nameArr = explode('.',$this->name);
         $_postfix = $_nameArr[count($_nameArr)-1];
         $_newname = date('YmdHis').mt_rand(100,1000).'.'.$_postfix;
-        return $this->linkPath = $this->today.$_newname;
+        $this->linkPath = UPDIR.$this->linktoday.$_newname;
+        return $this->today.$_newname;
     }
 
     //验证类型

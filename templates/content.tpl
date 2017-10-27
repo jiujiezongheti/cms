@@ -20,7 +20,7 @@
 		{/if}
 	</ol>
 	{if $add}
-		<form action="">
+		<form action="" name="content">
 			<table cellspacing="0" class="content">
 				<tr>
 					<th><strong>发布一条新文档</strong></th>
@@ -51,8 +51,9 @@
 				</tr>
 				<tr>
 					<td>缩略图：
-						<input type="text" name="thumbnail" class="text">
+						<input type="text" name="thumbnail" class="text" readonly="readonly">
 						<input type="button" value="上传缩略图" onclick="centerWindow('../templates/upload.html','upload','400','100')">
+						<img name="pic" style="display: none">
 					</td>
 				</tr>
 				<tr>
