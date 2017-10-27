@@ -19,6 +19,10 @@ class Image{
         $this->img = $this->getFromImg($this->file,$this->type);
     }
 
+    //缩略图，%比
+    public function thumb($_per){
+
+    }
     //加载图片，各种类型  ,返回图片资源句柄
     private function getFromImg($_file,$_type){
         switch ($_type){
